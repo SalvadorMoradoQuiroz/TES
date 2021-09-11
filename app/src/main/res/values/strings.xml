@@ -4,4 +4,17 @@
     <string name="correo_el_ctronico">Correo eléctronico</string>
     <string name="contrase_a">Contraseña</string>
     <string name="todo">TODO</string>
+    <string name="scrollview">ScrollView</string>
+    <string name="tel_fono">Teléfono</string>
+    <string name="ubicaci_n">Ubicación</string>
+    <string name="registrar">Registrar</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="confirmar_contrase_a">Confirmar contraseña</string>
+    <string name="especialidad">Especialidad</string>
+    <string name="rol_del_usuario">Rol del usuario</string>
+    <string name="qu_tipo_de_usuario_ser">¿Qué tipo de usuario será?</string>
+    <string name="cliente">Cliente</string>
+    <string name="talachero">Talachero</string>
+
 </resources>
