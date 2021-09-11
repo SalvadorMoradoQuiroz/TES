@@ -16,5 +16,14 @@
     <string name="qu_tipo_de_usuario_ser">¿Qué tipo de usuario será?</string>
     <string name="cliente">Cliente</string>
     <string name="talachero">Talachero</string>
+    <string name="propuesta_del_contrato">Propuesta del contrato</string>
+    <string name="rechazar">Rechazar</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="trabajo_por_hacer">Trabajo por hacer:</string>
+    <string name="nombre_text">Nombre:</string>
+    <string name="fecha">Fecha:</string>
+    <string name="enviar">Enviar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="monto">Monto</string>
 
 </resources>
