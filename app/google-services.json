@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "675885591027",
+    "project_id": "app-tes-ba6e9",
+    "storage_bucket": "app-tes-ba6e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675885591027:android:87a5f463aace820b2fca86",
+        "android_client_info": {
+          "package_name": "com.tecnm.campusuruapan.pi.tes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675885591027-a8kutig27i4ctefqsro97m1pm8p85vtq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tecnm.campusuruapan.pi.tes",
+            "certificate_hash": "3579de07768917eaa9c85d28c5ee57fc583416b6"
+          }
+        },
+        {
+          "client_id": "675885591027-r1e7angppicm1f62iml08r4qmbvodqj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3IpzWQ6nRCXrzD6PeWEeGd1cOvcz7ut8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675885591027-r1e7angppicm1f62iml08r4qmbvodqj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
