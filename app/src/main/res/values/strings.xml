@@ -25,5 +25,12 @@
     <string name="enviar">Enviar</string>
     <string name="cancelar">Cancelar</string>
     <string name="monto">Monto</string>
+    <string name="ver_contratos">Ver contratos</string>
+    <string name="abrir_mensajer_a">Abrir Mensajería</string>
+
+
+    <string name="direcci_n">Cerro de Punhuato 27 interior 7, infonavit balcones, Uruapan</string> <!--Cambiar-->
+    <string name="email">mich_ed_ra_pu_632@gmail.com</string><!--Cambiar-->
+    <string name="borrar">Michelle Edith Rayas Cervantes</string><!--Borrar-->
 
 </resources>
