@@ -74,7 +74,7 @@ public class FirebaseAuthHelper {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                //firebaseFirestoreHelper.getData(Objects.requireNonNull(user).getUid(), dialog, information, context);
+                                firebaseFirestoreHelper.getData(Objects.requireNonNull(user).getUid(), dialog, information, context);
                             } else {
                                 String error = Objects.requireNonNull(task.getException()).getMessage();
                                 switch (Objects.requireNonNull(error)) {

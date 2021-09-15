@@ -3,6 +3,7 @@ package com.tecnm.campusuruapan.pi.tes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,11 +11,20 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
+import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseAuthHelper;
+import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseFirestoreHelper;
+import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
 
 import java.util.Objects;
 
-public class LoginActivity extends AppCompatActivity {
-    private MaterialButton materialButton_registrarese_login;
+public class LoginActivity extends AppCompatActivity implements Information {
+    private MaterialButton materialButton_Registrarse_Login;
+    private MaterialButton materialButton_IniciarSesion;
+    private MaterialButton materialButton_OlvidarPass;
+    private TextInputLayout textInputLayout_Email;
+    private TextInputLayout textInputLayout_Pass;
+    private FirebaseAuthHelper firebaseAuthHelper = new FirebaseAuthHelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +32,36 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        materialButton_registrarese_login = findViewById(R.id.materialButton_registrarese_login);
+        firebaseAuthHelper.setContext(LoginActivity.this);
+        firebaseAuthHelper.setOnInformationListener(this);
+
+        materialButton_Registrarse_Login = findViewById(R.id.materialButton_Registrarse_Login);
+        materialButton_IniciarSesion = findViewById(R.id.materialButton_IniciarSesion);
+        materialButton_OlvidarPass = findViewById(R.id.materialButton_OlvidarPass);
+        textInputLayout_Email = findViewById(R.id.textInputLayout_Email_Login);
+        textInputLayout_Pass = findViewById(R.id.textInputLayout_Pass_Login);
 
         buttons();
     }
 
     private void buttons() {
-        materialButton_registrarese_login.setOnClickListener(new View.OnClickListener() {
+        materialButton_Registrarse_Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(LoginActivity.this, "Registrar usuario", Toast.LENGTH_SHORT).show();
                 showDialogDecision();
+            }
+        });
+
+        materialButton_IniciarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = textInputLayout_Email.getEditText().getText().toString();
+                String pass = textInputLayout_Pass.getEditText().getText().toString();
+
+                ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, "", "Ingresando... ", true);
+                dialog.show();
+                firebaseAuthHelper.signInWithEmailAndPassword(email, pass, dialog);
             }
         });
     }
@@ -73,5 +102,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void getMessage(String message) {
+        Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 }

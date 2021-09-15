@@ -1,33 +1,40 @@
 package com.tecnm.campusuruapan.pi.tes.helpers;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.tecnm.campusuruapan.pi.tes.LoginActivity;
+import com.tecnm.campusuruapan.pi.tes.SignInActivity;
 import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
 import com.tecnm.campusuruapan.pi.tes.models.User;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class FirebaseFirestoreHelper {
     public static User user = null;
     public static FirebaseFirestore db = FirebaseFirestore.getInstance();
-    public static final CollectionReference TalacherosCollection = FirebaseFirestoreHelper.db.collection("talacheros");
-    public static final CollectionReference ClientesCollection = FirebaseFirestoreHelper.db.collection("clientes");
+    public static final CollectionReference UsuariosCollection = FirebaseFirestoreHelper.db.collection("usuarios");
 
     //Se debe modificar
     public void addData(Information information, ProgressDialog dialog, Context context, String uid, String email, String password, String[] param, String tipo) {
         Map<String, Object> usuario = new HashMap<>();
         if (tipo.equals("TALACHERO")) {
+            usuario.put("tipo_user", "TALACHERO");
             usuario.put("nombre", param[0]);
             usuario.put("apellidos", param[1]);
             usuario.put("telefono", param[2]);
@@ -38,8 +45,9 @@ public class FirebaseFirestoreHelper {
             usuario.put("uri_image", "");
             usuario.put("activo", true);
             Log.e("talachero", usuario.values().toArray().length + "");
-            registerDataUserToFirestore(TalacherosCollection, uid, information, dialog, usuario, context);
+            registerDataUserToFirestore(UsuariosCollection, uid, information, dialog, usuario, context);
         } else if (tipo.equals("CLIENTE")) {
+            usuario.put("tipo_user", "CLIENTE");
             usuario.put("nombre", param[0]);
             usuario.put("apellidos", param[1]);
             usuario.put("telefono", param[2]);
@@ -49,7 +57,7 @@ public class FirebaseFirestoreHelper {
             usuario.put("uri_image", "");
             usuario.put("activo", true);
             Log.e("cliente", usuario.values().toArray().length + "");
-            registerDataUserToFirestore(ClientesCollection, uid, information, dialog, usuario, context);
+            registerDataUserToFirestore(UsuariosCollection, uid, information, dialog, usuario, context);
         }
     }
 
@@ -69,10 +77,9 @@ public class FirebaseFirestoreHelper {
                                     new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface alertDialog, int i) {
-
-                                            /*Intent intent = new Intent(context, OptionsActivity.class);
+                                            Intent intent = new Intent(context, LoginActivity.class);
                                             context.startActivity(intent);
-                                            ((Activity) context).finish();*/
+                                            ((Activity) context).finish();
                                             alertDialog.dismiss();
                                         }
                                     }
@@ -81,16 +88,16 @@ public class FirebaseFirestoreHelper {
                             alertDialogBuilder.show();
                         } else {
                             information.getMessage("Error del registros de los datos. Inténtelo de nuevo");
-                            /*Intent intent = new Intent(context, OptionsActivity.class);
+                            Intent intent = new Intent(context, LoginActivity.class);
                             context.startActivity(intent);
-                            ((Activity) context).finish();*/
+                            ((Activity) context).finish();
                         }
 
                     }
                 });
     }
 
-    /*public void getData(String document, final ProgressDialog dialog, final Information information, final Context context) {
+    public void getData(String document, final ProgressDialog dialog, final Information information, final Context context) {
         dialog.show();
         UsuariosCollection.document(document).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -99,58 +106,48 @@ public class FirebaseFirestoreHelper {
                     DocumentSnapshot document = task.getResult();
                     if (Objects.requireNonNull(document).exists()) {
                         Map<String, Object> data = document.getData();
-                        //User = new User(document.getId(), String.valueOf(Objects.requireNonNull(data).get("nombre")), String.valueOf(data.get("apellido")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), String.valueOf(data.get("carrera")), String.valueOf(data.get("uri_image")), (boolean) data.get("activo"));
+
+                        if(String.valueOf(data.get("tipo_user")).equals("CLIENTE")){
+                            //Cliente
+                            user = new User(document.getId(), String.valueOf(Objects.requireNonNull(data).get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"));
+                        }else{
+                            //Talachero
+                            user = new User(document.getId(), String.valueOf(Objects.requireNonNull(data).get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"), String.valueOf(data.get("especialidad")));
+                        }
+
                         if ((boolean) Objects.requireNonNull(document.get("activo"))) {
                             information.getMessage("Bienvenido " + user.getNombre() + " " + user.getApellidos());
-                            Intent intent = new Intent(context, MainAdviserActivityApp.class);
+                            //Se debe redigir...
+                            /*Intent intent = new Intent(context, LoginActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(intent);
-                            ((Activity) context).finish();
+                            ((Activity) context).finish();*/
                         } else {
-                            if (!(context instanceof OptionsActivity)) {
-                                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                                alertDialogBuilder.setCancelable(false);
-                                alertDialogBuilder.setTitle("Aviso");
-                                alertDialogBuilder.setMessage("Registrado comuníquese con el administrador para habilitar su cuenta...");
-                                alertDialogBuilder.setPositiveButton("Aceptar",
-                                        new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface alertDialog, int i) {
-
-                                                Intent intent = new Intent(context, OptionsActivity.class);
-                                                context.startActivity(intent);
-                                                ((Activity) context).finish();
-                                                alertDialog.cancel();
-                                            }
+                            final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                            alertDialogBuilder.setCancelable(false);
+                            alertDialogBuilder.setTitle("Aviso");
+                            alertDialogBuilder.setMessage("Su cuenta ha sido bloqueada, comuniquese con los administradores...");
+                            alertDialogBuilder.setPositiveButton("Aceptar",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface alertDialog, int i) {
+                                            Intent intent = new Intent(context, LoginActivity.class);
+                                            context.startActivity(intent);
+                                            ((Activity) context).finish();
+                                            alertDialog.cancel();
                                         }
-                                );
-                                //alertDialogBuilder.show();
-                            } else {
-                                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                                alertDialogBuilder.setTitle("Aviso");
-                                alertDialogBuilder.setMessage("Registrado comuníquese con el administrador para habilitar su cuenta...");
-                                alertDialogBuilder.setPositiveButton("Aceptar",
-                                        new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface alertDialog, int i) {
-                                                alertDialog.cancel();
-                                            }
-                                        }
-                                );
-
-                                alertDialogBuilder.show();
-                            }
+                                    }
+                            );
                         }
                     } else {
                         information.getMessage("No existe esa cuenta");
-                        Intent intent = new Intent(context, OptionsActivity.class);
+                        Intent intent = new Intent(context, LoginActivity.class);
                         context.startActivity(intent);
                         ((Activity) context).finish();
                     }
                 } else {
-
                     information.getMessage("Error, verifique su conexión a Internet, si los problemas continuan contacte al administrado");
-                    Intent intent = new Intent(context, OptionsActivity.class);
+                    Intent intent = new Intent(context, LoginActivity.class);
                     context.startActivity(intent);
                     ((Activity) context).finish();
                 }
@@ -159,7 +156,7 @@ public class FirebaseFirestoreHelper {
             }
         });
 
-    }*/
+    }
 
     /*public void updateDataAsesor(final String nombre, final String apellido, final String carrera, final ProgressDialog dialog, final Status status) {
         Map<String, Object> asesorMap = new HashMap<>();

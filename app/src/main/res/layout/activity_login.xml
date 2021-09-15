@@ -80,6 +80,7 @@
                         app:srcCompat="@drawable/ic_baseline_alternate_email_24" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout_Email_Login"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -116,6 +117,7 @@
                         app:srcCompat="@drawable/ic_baseline_lock_24" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout_Pass_Login"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -134,6 +136,7 @@
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/materialButton_IniciarSesion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -148,7 +151,7 @@
                 </com.google.android.material.button.MaterialButton>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/materialButton_registrarese_login"
+                    android:id="@+id/materialButton_Registrarse_Login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -163,7 +166,7 @@
                 </com.google.android.material.button.MaterialButton>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/materialButton2"
+                    android:id="@+id/materialButton_OlvidarPass"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

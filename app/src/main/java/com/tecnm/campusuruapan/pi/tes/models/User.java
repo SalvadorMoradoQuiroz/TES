@@ -1,24 +1,58 @@
 package com.tecnm.campusuruapan.pi.tes.models;
 
 public class User {
+    private String id;
+    private String tipo_user;
     private String nombre;
     private String apellidos;
     private String telefono;
     private String ubicacion;
     private String email;
+    private String password;
     private String especialidad;
     private boolean activo;
 
     public User(){}
 
-    public User(String nombre, String apellidos, String telefono, String ubicacion, String email, String especialidad, boolean activo) {
+    public User(String id, String tipo_user, String nombre, String apellidos, String telefono, String ubicacion, String email, String password, boolean activo, String especialidad) {
+        this.id = id;
+        this.tipo_user = tipo_user;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.telefono = telefono;
         this.ubicacion = ubicacion;
         this.email = email;
-        this.especialidad = especialidad;
+        this.password = password;
         this.activo = activo;
+        this.especialidad = especialidad;
+    }
+
+    public User(String id, String tipo_user, String nombre, String apellidos, String telefono, String ubicacion, String email, String password, boolean activo) {
+        this.id = id;
+        this.tipo_user = tipo_user;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.telefono = telefono;
+        this.ubicacion = ubicacion;
+        this.email = email;
+        this.password = password;
+        this.activo = activo;
+    }
+
+    public String getTipo_user() {
+        return tipo_user;
+    }
+
+    public void setTipo_user(String tipo_user) {
+        this.tipo_user = tipo_user;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
