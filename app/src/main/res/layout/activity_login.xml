@@ -94,6 +94,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
                             tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -126,11 +127,14 @@
                         android:backgroundTint="@color/principal_yellow"
                         android:hint="@string/contrase_a"
                         app:boxStrokeColor="@color/principal_yellow"
-                        app:hintTextColor="@color/principal_yellow">
+                        app:hintTextColor="@color/principal_yellow"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/black">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="textPassword"
                             tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
