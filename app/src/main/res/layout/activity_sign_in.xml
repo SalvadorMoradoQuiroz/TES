@@ -49,6 +49,7 @@
                     android:contentDescription="@string/todo" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_Nombre"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -85,6 +86,7 @@
                     android:contentDescription="@string/todo" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_Apellidos"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -121,6 +123,7 @@
                     android:contentDescription="@string/todo" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_Telefono"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -153,10 +156,11 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="0.15"
-                    app:srcCompat="@drawable/ic_baseline_location_on_24"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo"
+                    app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_Ubicacion"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -193,6 +197,7 @@
                     android:contentDescription="@string/todo" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_Email"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -225,10 +230,11 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="0.10"
-                    app:srcCompat="@drawable/ic_baseline_lock_24"
-                    android:contentDescription="@string/todo" />
+                    android:contentDescription="@string/todo"
+                    app:srcCompat="@drawable/ic_baseline_lock_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_Pass"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -265,6 +271,7 @@
                     android:contentDescription="@string/todo" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_ConfirmPass"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -302,6 +309,7 @@
                     app:srcCompat="@drawable/ic_baseline_home_repair_service_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout_Especialidad"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -322,7 +330,7 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/materialButton"
+                android:id="@+id/materialButton_Registrarse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"

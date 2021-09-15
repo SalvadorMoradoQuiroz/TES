@@ -1,41 +1,55 @@
 package com.tecnm.campusuruapan.pi.tes.helpers;
+
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.util.Log;
+
 import androidx.annotation.NonNull;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
 import com.tecnm.campusuruapan.pi.tes.models.User;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class FirebaseFirestoreHelper {
     public static User user = null;
     public static FirebaseFirestore db = FirebaseFirestore.getInstance();
-    public static final CollectionReference UsuariosCollection = FirebaseFirestoreHelper.db.collection("asesores");
+    public static final CollectionReference TalacherosCollection = FirebaseFirestoreHelper.db.collection("talacheros");
+    public static final CollectionReference ClientesCollection = FirebaseFirestoreHelper.db.collection("clientes");
 
     //Se debe modificar
-    public void addData(Information information, ProgressDialog dialog, Context context, String uid, String email, String password, String[] param) {
-        if (param.length == 3) {
-            //asesor
-            Map<String, Object> asesor = new HashMap<>();
-            asesor.put("nombre", param[0]);
-            asesor.put("apellido", param[1]);
-            asesor.put("carrera", param[2]);
-            asesor.put("email", email);
-            asesor.put("password", password);
-            asesor.put("uri_image", "");
-            asesor.put("activo", false);
-            Log.e("lista", asesor.values().toArray().length + "");
-            registerDataUserToFirestore(UsuariosCollection, uid, information, dialog, asesor, context);
-
-        } else if (param.length == 2) {
-            //es un profesor
+    public void addData(Information information, ProgressDialog dialog, Context context, String uid, String email, String password, String[] param, String tipo) {
+        Map<String, Object> usuario = new HashMap<>();
+        if (tipo.equals("TALACHERO")) {
+            usuario.put("nombre", param[0]);
+            usuario.put("apellidos", param[1]);
+            usuario.put("telefono", param[2]);
+            usuario.put("ubicacion", param[3]);
+            usuario.put("especialidad", param[4]);
+            usuario.put("email", email);
+            usuario.put("password", password);
+            usuario.put("uri_image", "");
+            usuario.put("activo", true);
+            Log.e("talachero", usuario.values().toArray().length + "");
+            registerDataUserToFirestore(TalacherosCollection, uid, information, dialog, usuario, context);
+        } else if (tipo.equals("CLIENTE")) {
+            usuario.put("nombre", param[0]);
+            usuario.put("apellidos", param[1]);
+            usuario.put("telefono", param[2]);
+            usuario.put("ubicacion", param[3]);
+            usuario.put("email", email);
+            usuario.put("password", password);
+            usuario.put("uri_image", "");
+            usuario.put("activo", true);
+            Log.e("cliente", usuario.values().toArray().length + "");
+            registerDataUserToFirestore(ClientesCollection, uid, information, dialog, usuario, context);
         }
     }
 
@@ -45,14 +59,12 @@ public class FirebaseFirestoreHelper {
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-
                         dialog.dismiss();
                         if (task.isSuccessful()) {
-
                             final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                             alertDialogBuilder.setCancelable(false);
                             alertDialogBuilder.setTitle("Aviso");
-                            alertDialogBuilder.setMessage("Registrado comuníquese con el administrador para habilitar su cuenta...");
+                            alertDialogBuilder.setMessage(" Usuario registrado con exito.");
                             alertDialogBuilder.setPositiveButton("Aceptar",
                                     new DialogInterface.OnClickListener() {
                                         @Override
@@ -67,8 +79,6 @@ public class FirebaseFirestoreHelper {
                             );
 
                             alertDialogBuilder.show();
-
-
                         } else {
                             information.getMessage("Error del registros de los datos. Inténtelo de nuevo");
                             /*Intent intent = new Intent(context, OptionsActivity.class);

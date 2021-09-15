@@ -31,7 +31,7 @@ public class FirebaseAuthHelper {
     }
 
     //Registrarse
-    public void createUserEmailAndPassword(final String email, final String password, final ProgressDialog dialog, final String[] args) {
+    public void createUserEmailAndPassword(final String email, final String password, final ProgressDialog dialog, final String[] args, String tipo) {
 
         if (stringHelper.isNotEmptyCredentials(email, password)) {
             mAuth.createUserWithEmailAndPassword(email, password)
@@ -42,7 +42,7 @@ public class FirebaseAuthHelper {
                                 // Sign in success, update UI with the signed-in user's information
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 //Creación de usuario
-                                firebaseFirestoreHelper.addData(information, dialog, context, user.getUid(), email, password, args);
+                                firebaseFirestoreHelper.addData(information, dialog, context, user.getUid(), email, password, args, tipo);
 
                             } else {
                                 String error = Objects.requireNonNull(task.getException()).getMessage();

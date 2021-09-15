@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         builder.setView(view);
 
         final AlertDialog dialogDEC = builder.create();
-        dialogDEC.setCancelable(false);
+        //dialogDEC.setCancelable(false);
         dialogDEC.show();
 
         final MaterialButton materialButton_desc_cliente = dialogDEC.findViewById(R.id.materialButton_desc_cliente);
@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, SignInActivity.class);
                 intent.putExtra("ROL","CLIENTE");
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
 
