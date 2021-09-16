@@ -9,8 +9,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="5dp"
         app:cardBackgroundColor="@color/principal_yellow"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,9 +30,9 @@
             <ImageView
                 android:id="@+id/imageView_Especialidad"
                 android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:layout_marginStart="5dp"
-                android:layout_weight="0.30"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                android:layout_weight="0.60"
                 android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/placheholder"
                 tools:ignore="ImageContrastCheck" />
@@ -37,7 +40,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.70"
+                android:layout_weight="0.40"
                 android:orientation="vertical">
 
                 <TextView
@@ -45,10 +48,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="40dp"
                     android:text="@string/especialidad"
                     android:textColor="@color/black"
-                    android:textSize="30sp"
+                    android:textSize="24sp"
                     android:textStyle="bold|italic" />
 
                 <TextView
@@ -56,11 +59,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:text="@string/_100_talachos_disponibles"
                     android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold|italic" />
+                    android:textStyle="italic" />
 
             </LinearLayout>
         </LinearLayout>

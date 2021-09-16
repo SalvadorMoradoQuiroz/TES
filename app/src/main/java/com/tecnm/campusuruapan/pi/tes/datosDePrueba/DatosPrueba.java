@@ -10,10 +10,10 @@ public class DatosPrueba {
 
     public static List<Specialty> getListEspecialidades(){
         List<Specialty> specialties = new ArrayList<>();
-        Specialty s = new Specialty("Mécanica", 10, R.drawable.user);
-        Specialty s1 = new Specialty("Fontanería", 10, R.drawable.user);
-        Specialty s2 = new Specialty("Plomería", 10, R.drawable.user);
-        Specialty s3 = new Specialty("Electricidad", 10, R.drawable.user);
+        Specialty s = new Specialty("Mécanica", 10, R.drawable.mecanica);
+        Specialty s1 = new Specialty("Fontanería", 10, R.drawable.fontaneria);
+        Specialty s2 = new Specialty("Plomería", 10, R.drawable.plomeria);
+        Specialty s3 = new Specialty("Electricidad", 10, R.drawable.electricidad);
 
         specialties.add(s);
         specialties.add(s1);
