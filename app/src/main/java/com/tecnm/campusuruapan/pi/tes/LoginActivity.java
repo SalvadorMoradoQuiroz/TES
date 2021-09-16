@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity implements Information {
         textInputLayout_Email = findViewById(R.id.textInputLayout_Email_Login);
         textInputLayout_Pass = findViewById(R.id.textInputLayout_Pass_Login);
 
+
         buttons();
     }
 
@@ -62,6 +63,14 @@ public class LoginActivity extends AppCompatActivity implements Information {
                 ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, "", "Ingresando... ", true);
                 dialog.show();
                 firebaseAuthHelper.signInWithEmailAndPassword(email, pass, dialog);
+            }
+        });
+
+        materialButton_OlvidarPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
+                startActivity(intent);
             }
         });
     }

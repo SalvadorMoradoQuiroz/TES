@@ -31,6 +31,14 @@
 
     <string name="direcci_n">Cerro de Punhuato 27 interior 7, infonavit balcones, Uruapan</string> <!--Cambiar-->
     <string name="email">mich_ed_ra_pu_632@gmail.com</string><!--Cambiar-->
-    <string name="borrar">Michelle Edith Rayas Cervantes</string><!--Borrar-->
+    <string name="borrar">Michelle Edith Rayas Cervantes</string>
+    <string name="escribe_un_mensaje">Escribe un mensaje...</string>
+    <string name="_100_talachos_disponibles">100 Talachos disponibles</string>
+    <string name="nombre_contrato_pendiente">Salvador Morado Quiroz</string>
+    <string name="reparacion">Tubería rota</string>
+    <string name="date_contrato_pendiente">16 - 09 - 21</string>
+    <string name="precio_contrato_pendiente">$350.00 Aprox.</string>
+    <string name="direcci_n_talachero">Dirección:</string>
+    <string name="calificaci_n_talachero">Calificación:</string><!--Borrar-->
 
 </resources>
