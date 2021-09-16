@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseUser;
 import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseAuthHelper;
 import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseFirestoreHelper;
 import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
@@ -25,6 +26,7 @@ public class LoginActivity extends AppCompatActivity implements Information {
     private TextInputLayout textInputLayout_Email;
     private TextInputLayout textInputLayout_Pass;
     private FirebaseAuthHelper firebaseAuthHelper = new FirebaseAuthHelper();
+    private FirebaseFirestoreHelper firestoreHelper = new FirebaseFirestoreHelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,16 @@ public class LoginActivity extends AppCompatActivity implements Information {
 
 
         buttons();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuthHelper.getCurrentUser()!=null){
+            ProgressDialog dialog = ProgressDialog.show(LoginActivity.this, "", "Ingresando... ", true);
+            dialog.show();
+            firestoreHelper.getData(FirebaseAuthHelper.getCurrentUser().getUid(), dialog, LoginActivity.this, LoginActivity.this);
+        }
     }
 
     private void buttons() {
@@ -69,8 +81,8 @@ public class LoginActivity extends AppCompatActivity implements Information {
         materialButton_OlvidarPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
+                startActivity(intent);*/
             }
         });
     }

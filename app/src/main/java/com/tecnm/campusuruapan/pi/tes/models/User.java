@@ -110,4 +110,12 @@ public class User {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

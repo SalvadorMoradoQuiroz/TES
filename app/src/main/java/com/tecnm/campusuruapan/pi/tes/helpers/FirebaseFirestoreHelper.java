@@ -17,6 +17,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.tecnm.campusuruapan.pi.tes.LoginActivity;
+import com.tecnm.campusuruapan.pi.tes.MainActivity;
 import com.tecnm.campusuruapan.pi.tes.SignInActivity;
 import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
 import com.tecnm.campusuruapan.pi.tes.models.User;
@@ -109,19 +110,20 @@ public class FirebaseFirestoreHelper {
 
                         if(String.valueOf(data.get("tipo_user")).equals("CLIENTE")){
                             //Cliente
-                            user = new User(document.getId(), String.valueOf(Objects.requireNonNull(data).get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"));
+                            user = new User(document.getId(), String.valueOf(data.get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"));
                         }else{
                             //Talachero
-                            user = new User(document.getId(), String.valueOf(Objects.requireNonNull(data).get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"), String.valueOf(data.get("especialidad")));
+                            user = new User(document.getId(), String.valueOf(data.get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"), String.valueOf(data.get("especialidad")));
                         }
 
                         if ((boolean) Objects.requireNonNull(document.get("activo"))) {
                             information.getMessage("Bienvenido " + user.getNombre() + " " + user.getApellidos());
                             //Se debe redigir...
-                            /*Intent intent = new Intent(context, LoginActivity.class);
+                            Intent intent = new Intent(context, MainActivity.class);
+                            intent.putExtra("ROL",user.getTipo_user());
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(intent);
-                            ((Activity) context).finish();*/
+                            ((Activity) context).finish();
                         } else {
                             final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                             alertDialogBuilder.setCancelable(false);
@@ -131,6 +133,8 @@ public class FirebaseFirestoreHelper {
                                     new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface alertDialog, int i) {
+                                            FirebaseAuthHelper.mAuth.signOut();
+                                            user=null;
                                             Intent intent = new Intent(context, LoginActivity.class);
                                             context.startActivity(intent);
                                             ((Activity) context).finish();
@@ -138,6 +142,7 @@ public class FirebaseFirestoreHelper {
                                         }
                                     }
                             );
+                            alertDialogBuilder.show();
                         }
                     } else {
                         information.getMessage("No existe esa cuenta");

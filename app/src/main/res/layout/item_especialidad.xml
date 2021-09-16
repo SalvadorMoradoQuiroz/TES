@@ -25,7 +25,7 @@
             android:weightSum="1">
 
             <ImageView
-                android:id="@+id/imageView11"
+                android:id="@+id/imageView_Especialidad"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
                 android:layout_marginStart="5dp"
@@ -41,7 +41,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textView_NombreEspecialidad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -52,7 +52,7 @@
                     android:textStyle="bold|italic" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/textView_CantTalacherosEsp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

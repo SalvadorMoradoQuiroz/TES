@@ -1,10 +1,13 @@
 package com.tecnm.campusuruapan.pi.tes.helpers;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+
 import androidx.annotation.NonNull;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -13,11 +16,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.tecnm.campusuruapan.pi.tes.LoginActivity;
 import com.tecnm.campusuruapan.pi.tes.MainActivity;
 import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
+
 import java.util.Objects;
 
 public class FirebaseAuthHelper {
     // Initialize Firebase Auth
-    private static FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    public static FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private Information information;
     private Context context;
     private final StringHelper stringHelper = new StringHelper();
@@ -76,9 +80,6 @@ public class FirebaseAuthHelper {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 firebaseFirestoreHelper.getData(Objects.requireNonNull(user).getUid(), dialog, information, context);
-                                Intent intent = new Intent(context, MainActivity.class);
-                                context.startActivity(intent);
-                                ((Activity) context).finish();
                             } else {
                                 String error = Objects.requireNonNull(task.getException()).getMessage();
                                 switch (Objects.requireNonNull(error)) {
