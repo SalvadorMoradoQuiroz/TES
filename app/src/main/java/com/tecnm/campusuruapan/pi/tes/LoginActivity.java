@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity implements Information {
                 Intent intent = new Intent(LoginActivity.this, SignInActivity.class);
                 intent.putExtra("ROL","TALACHERO");
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
 

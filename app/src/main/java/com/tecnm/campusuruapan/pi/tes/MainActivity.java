@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+                intent.putExtra("NombreTalachero", "Salvador Morado Quiroz");
                 startActivity(intent);
             }
         });

@@ -2,7 +2,10 @@ package com.tecnm.campusuruapan.pi.tes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.tecnm.campusuruapan.pi.tes.adapters.AdapterListViewSpecialty;
@@ -21,5 +24,13 @@ public class SpecialtyActivity extends AppCompatActivity {
         listView_Especialidades = findViewById(R.id.listView_Especialidades);
         AdapterListViewSpecialty adapterListViewSpecialty = new AdapterListViewSpecialty(SpecialtyActivity.this, R.layout.item_especialidad, DatosPrueba.getListEspecialidades());
         listView_Especialidades.setAdapter(adapterListViewSpecialty);
+
+        listView_Especialidades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(SpecialtyActivity.this, TalacherosActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
