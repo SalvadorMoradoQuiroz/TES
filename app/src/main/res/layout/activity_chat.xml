@@ -137,8 +137,10 @@
                 android:gravity="start|top"
                 android:hint="@string/escribe_un_mensaje"
                 android:inputType="textMultiLine"
+                android:minHeight="48dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textColorHint="@color/black"
+                android:importantForAutofill="no" />
 
             <ImageView
                 android:id="@+id/imageView14"
