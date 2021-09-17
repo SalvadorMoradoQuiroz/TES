@@ -108,7 +108,7 @@ public class FirebaseAuthHelper {
     }
 
     ///Cerrar sesión
-    public void signout(final ProgressDialog dialog) {
+    public void signout(final ProgressDialog dialog, Context context) {
         mAuth.signOut();
         FirebaseFirestoreHelper.user = null;
         Log.e("er", mAuth.getCurrentUser() + "");

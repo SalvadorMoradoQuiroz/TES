@@ -1,44 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/principal_yellow">
+
+        <TextView
+            android:id="@+id/textView_recuperar_informacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/recuperar_informaci_n"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/scrollview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/imageViewS"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="25dp"
-                android:contentDescription="@string/todo"
-                app:srcCompat="@drawable/cambiar" />
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imageView_nombre_editar"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -49,7 +51,7 @@
                     app:srcCompat="@drawable/ic_baseline_person_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Nombre"
+                    android:id="@+id/textInputLayout_Nombre_editar"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -61,21 +63,21 @@
                     app:hintTextColor="@color/principal_yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+                        android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imageView_apellido_editar"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -86,7 +88,7 @@
                     app:srcCompat="@drawable/ic_baseline_person_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Apellidos"
+                    android:id="@+id/textInputLayout_apellidos_editar"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -98,21 +100,21 @@
                     app:hintTextColor="@color/principal_yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+                        android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imageView_telefono_editar"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -123,7 +125,7 @@
                     app:srcCompat="@drawable/ic_baseline_phone_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Telefono"
+                    android:id="@+id/textInputLayout_Telefono_editar"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -135,21 +137,21 @@
                     app:hintTextColor="@color/principal_yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+                        android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView10"
+                    android:id="@+id/imageView_ubicacion_editar"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -160,7 +162,7 @@
                     app:srcCompat="@drawable/ic_baseline_location_on_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Ubicacion"
+                    android:id="@+id/textInputLayout_Ubicacion_editar"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -174,19 +176,19 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+                        tools:ignore="TextContrastCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/imageView_pass_editar"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -194,98 +196,24 @@
                     android:layout_marginEnd="5dp"
                     android:layout_weight="0.05"
                     android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/ic_baseline_alternate_email_24" />
+                    app:srcCompat="@drawable/ic_baseline_lock_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Email"
+                    android:id="@+id/textInputLayout_contraseña_editar"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="0.75"
                     android:backgroundTint="@color/principal_yellow"
-                    android:hint="@string/correo_el_ctronico"
-                    app:boxStrokeColor="@color/principal_yellow"
-                    app:hintTextColor="@color/principal_yellow">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="0.05"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/ic_baseline_lock_24" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Pass"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="0.80"
-                    android:backgroundTint="@color/principal_yellow"
                     android:hint="@string/contrase_a"
                     app:boxStrokeColor="@color/principal_yellow"
                     app:hintTextColor="@color/principal_yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="0.05"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/ic_baseline_lock_24" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_ConfirmPass"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="0.80"
-                    android:backgroundTint="@color/principal_yellow"
-                    android:hint="@string/confirmar_contrase_a"
-                    app:boxStrokeColor="@color/principal_yellow"
-                    app:hintTextColor="@color/principal_yellow">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
+                        android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -293,12 +221,12 @@
                 android:id="@+id/linearLayout_especialidad_sign"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView9"
+                    android:id="@+id/imageView_especialidad_editar"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal|center_vertical"
@@ -309,7 +237,7 @@
                     app:srcCompat="@drawable/ic_baseline_home_repair_service_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Especialidad"
+                    android:id="@+id/textInputLayout_Especialidad_editar"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -325,26 +253,43 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:inputType="none" />
+                        android:inputType="none"
+                        tools:ignore="TextContrastCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/materialButton_Registrarse"
+                android:id="@+id/materialButton_actualizar_editar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5dp"
                 android:backgroundTint="@color/black"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="@string/registrar"
+                android:text="@string/actualizar"
+                app:cornerRadius="5dp">
+
+            </com.google.android.material.button.MaterialButton>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/materialButton_salir_editar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/black"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/salir"
                 app:cornerRadius="5dp">
 
             </com.google.android.material.button.MaterialButton>
 
         </LinearLayout>
     </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

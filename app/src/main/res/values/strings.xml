@@ -39,6 +39,26 @@
     <string name="date_contrato_pendiente">16 - 09 - 21</string>
     <string name="precio_contrato_pendiente">$350.00 Aprox.</string>
     <string name="direcci_n_talachero">Dirección:</string>
-    <string name="calificaci_n_talachero">Calificación:</string><!--Borrar-->
+    <string name="calificaci_n_talachero">Calificación:</string>
+    <string name="seleccione_sus_oficios">Seleccione sus oficios</string>
+    <string name="escriba_el_oficio">Escriba el oficio</string>
+    <string name="salir">Salir</string>
+    <string name="cerrajer_a">Cerrajería</string>
+    <string name="electricista">Electricista</string>
+    <string name="fontaner_a">Fontanería</string>
+    <string name="herrer_a">Herrería</string>
+    <string name="m_canica_automotriz">Mécanica automotriz</string>
+    <string name="plomer_a">Plomería</string>
+    <string name="servicio_de_mudanza">Servicio de mudanza</string>
+    <string name="otro">Otro</string>
+    <string name="alba_iler_a">Albañilería</string>
+    <string name="carpinter_a">Carpintería</string>
+    <string name="pintor">Pintor</string>
+    <string name="recuperar_contrase_a">Recuperar contraseña</string>
+    <string name="para_recuperar_tu_contrase_a_ingresa_el_correo_electr_nico_con_el_que_te_registraste_y_da_clic_en_enviar">Para recuperar tu contraseña ingresa el correo electrónico con el que te registraste y da clic en enviar.</string>
+    <string name="recuperar_informaci_n">Recuperar información</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="trabajo_realizado">Trabajo realizado:</string><!--Borrar-->
 
 </resources>

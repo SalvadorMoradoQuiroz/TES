@@ -2,9 +2,12 @@ package com.tecnm.campusuruapan.pi.tes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView_Correo;
     private MaterialButton materialButton_BuscarT_VerC;
     private MaterialButton materialButton_AbrirMensajeria;
+    private FirebaseAuthHelper firebaseAuthHelper = new FirebaseAuthHelper();
     //private FirebaseFirestoreHelper firestoreHelper = new FirebaseFirestoreHelper();
     
     @Override
@@ -80,5 +84,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.overflow, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.item_cerrar_sesion:
+                Toast.makeText(MainActivity.this, "Cerrar sesión" + "...", Toast.LENGTH_SHORT).show();
+                ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "",
+                        "Nos vemos pronto...", true);
+                firebaseAuthHelper.signout(dialog, MainActivity.this);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

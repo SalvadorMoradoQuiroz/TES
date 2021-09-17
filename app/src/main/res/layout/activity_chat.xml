@@ -117,38 +117,35 @@
 
             <ImageView
                 android:id="@+id/imageView13"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_marginStart="2dp"
-                android:layout_weight="0.10"
+                android:layout_weight="0.15"
                 android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout_mensajes_chat"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/editTextTextMultiLine2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="0.75"
+                android:layout_marginEnd="2dp"
+                android:layout_weight="0.68"
+                android:backgroundTint="@color/black"
+                android:ems="10"
+                android:gravity="start|top"
                 android:hint="@string/escribe_un_mensaje"
-                app:boxBackgroundColor="@color/white"
-                app:boxStrokeColor="@color/principal_yellow"
-                app:hintTextColor="@color/principal_yellow">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="textMultiLine"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black" />
 
             <ImageView
                 android:id="@+id/imageView14"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical|end"
-                android:layout_weight="0.1"
+                android:layout_weight="0.15"
                 android:contentDescription="@string/todo"
                 app:srcCompat="@drawable/ic_baseline_send_24" />
 
