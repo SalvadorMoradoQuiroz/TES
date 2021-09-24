@@ -59,6 +59,7 @@
     <string name="recuperar_informaci_n">Recuperar información</string>
     <string name="actualizar">Actualizar</string>
     <string name="cerrar_sesi_n">Cerrar sesión</string>
-    <string name="trabajo_realizado">Trabajo realizado:</string><!--Borrar-->
+    <string name="trabajo_realizado">Trabajo realizado:</string>
+    <string name="contratos_pendientes">Contratos pendientes</string><!--Borrar-->
 
 </resources>

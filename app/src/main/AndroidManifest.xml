@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TES">
         <activity
+            android:name=".MensajeriaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ContractHistoryActivity"
+            android:exported="true" />
+        <activity
             android:name=".TalacherosActivity"
             android:exported="true" />
         <activity

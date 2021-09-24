@@ -3,51 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/background_item_author.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_add_photo_alternate_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_alternate_email_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_chat_bubble_outline_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_home_repair_service_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_star_outline_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/item_contrato_pendiente.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/roundcorner.xml" value="0.2703125" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_chat.xml" value="0.536" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_login.xml" value="0.6" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_sign_in.xml" value="0.72" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/dialgo_recuperar_password.xml" value="0.6" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/dialog_editar_informacion.xml" value="0.4643196955280685" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/dialog_especialidades.xml" value="0.4" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/dialog_propuesta_talachero.xml" value="0.19927536231884058" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/item_contrato_pendiente.xml" value="0.6" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/item_contrato_sin_finalizar.xml" value="0.72" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/item_contratos_finalizados.xml" value="0.6" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/item_especialidad.xml" value="0.536" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/item_mensajeria_cliente.xml" value="0.6" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/item_mensajeria_talachero.xml" value="0.6" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/item_talachero.xml" value="0.4856512141280353" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/menu/opc.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/menu/overflow.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.15885416666666666" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_baseline_chat_bubble_outline_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/roundcorner.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/roundcorner2.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_chat.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_contract_history.xml" value="0.2" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_login.xml" value="0.2" />
-        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_main.xml" value="0.1213768115942029" />
-        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_mensajeria.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_sign_in.xml" value="0.22" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_specialty.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_talacheros.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/dialgo_recuperar_password.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/dialog_accept_contract.xml" value="0.1213768115942029" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/dialog_decision.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/dialog_especialidades.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/dialog_propuesta_talachero.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_contrato_pendiente.xml" value="0.33" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_contrato_sin_finalizar.xml" value="0.25" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_contratos_finalizados.xml" value="0.33" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_especialidad.xml" value="0.2" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_mensajeria.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_mensajeria_cliente.xml" value="0.33" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_talachero.xml" value="0.33" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/menu/overflow.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

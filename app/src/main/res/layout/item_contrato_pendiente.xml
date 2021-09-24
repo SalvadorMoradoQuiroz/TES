@@ -38,7 +38,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView_FotoPerfilT_Item"
+                        android:id="@+id/imageView_FotoPerfil_ItemCP"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
@@ -53,7 +53,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView_NombreT_Item"
+                        android:id="@+id/textView_Nombre_ItemCP"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -65,7 +65,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_DireccionT_Item"
+                        android:id="@+id/textView_DescrServicioCP"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
@@ -76,7 +76,7 @@
                         android:textStyle="italic" />
 
                     <TextView
-                        android:id="@+id/textView17"
+                        android:id="@+id/textView_Fecha_ItemCP"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
@@ -87,7 +87,7 @@
                         android:textStyle="italic" />
 
                     <TextView
-                        android:id="@+id/textView_CalificacionT_Item"
+                        android:id="@+id/textView_Costo_ItemCP"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -106,7 +106,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton_Mensaje_Item"
+                        android:id="@+id/imageButton_Mensaje_ItemCP"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="end"
@@ -127,7 +127,7 @@
                 android:weightSum="1">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/materialButton_aceptar_contrato_pendiente"
+                    android:id="@+id/materialButton_Aceptar_ItemCP"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -143,7 +143,7 @@
                 </com.google.android.material.button.MaterialButton>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/materialButton_rechazar_contrato_pendiente"
+                    android:id="@+id/materialButton_Rechazar_ItemCP"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"

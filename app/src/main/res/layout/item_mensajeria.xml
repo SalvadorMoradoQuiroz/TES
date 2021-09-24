@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/carViewContacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -37,11 +38,12 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView_FotoPerfilT_mensajeria_cliente"
+                        android:id="@+id/imageView_FotoPerfil_ItemMensajeria"
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
                         android:contentDescription="@string/todo"
+                        android:foregroundGravity="center"
                         app:srcCompat="@drawable/ic_baseline_account_circle_24" />
                 </LinearLayout>
 
@@ -52,38 +54,16 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView_NombreT_mensajeria_cliente"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_Nombre_ItemMensajeria"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp"
-                        android:gravity="start"
+                        android:gravity="center"
                         android:text="@string/nombre_contrato_pendiente"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/textView_trabajo_realizado_mensajeria_cliente"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="start"
-                        android:text="@string/trabajo_realizado"
-                        android:textColor="@color/black"
-                        android:textSize="11sp"
-                        android:textStyle="italic" />
-
-                    <TextView
-                        android:id="@+id/textView_fecha_mensajeria_cliente"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:gravity="start"
-                        android:text="@string/fecha"
-                        android:textColor="@color/black"
-                        android:textSize="11sp"
-                        android:textStyle="italic" />
 
                 </LinearLayout>
 
@@ -94,15 +74,16 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton_Mensaje_mensajeria_cliente"
+                        android:id="@+id/imageButton_Mensaje_ItemMensajeria"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
-                        android:layout_gravity="end"
-                        android:layout_marginTop="50dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_gravity="fill_horizontal|center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
                         android:background="@drawable/roundcorner2"
                         android:contentDescription="@string/todo"
+                        android:foregroundGravity="center"
                         app:srcCompat="@drawable/ic_baseline_chat_bubble_outline_24"
                         tools:ignore="ImageContrastCheck" />
 

@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }else{
                     //TALACHERO. Ver Contratos
+                    Intent intent = new Intent(MainActivity.this, ContractHistoryActivity.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -79,8 +81,7 @@ public class MainActivity extends AppCompatActivity {
         materialButton_AbrirMensajeria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-                intent.putExtra("NombreTalachero", "Salvador Morado Quiroz");
+                Intent intent = new Intent(MainActivity.this, MensajeriaActivity.class);
                 startActivity(intent);
             }
         });

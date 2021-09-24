@@ -37,7 +37,7 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView_FotoPerfilT_Item"
+                        android:id="@+id/imageView_FotoPerfil_ItemCF"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_marginTop="10dp"
@@ -52,7 +52,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView_NombreT_Item"
+                        android:id="@+id/textView_Nombre_ItemCF"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -64,7 +64,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_DireccionT_Item"
+                        android:id="@+id/textView_DescrServicio_ItemCF"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
@@ -75,7 +75,7 @@
                         android:textStyle="italic" />
 
                     <TextView
-                        android:id="@+id/textView17"
+                        android:id="@+id/textView_Fecha_ItemCF"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
@@ -86,7 +86,7 @@
                         android:textStyle="italic" />
 
                     <TextView
-                        android:id="@+id/textView_CalificacionT_Item"
+                        android:id="@+id/textView_Costo_ItemCF"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
@@ -105,7 +105,7 @@
                     android:orientation="vertical">
 
                     <ImageButton
-                        android:id="@+id/imageButton_Mensaje_Item"
+                        android:id="@+id/imageButton_Calif_ItemCF"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:layout_gravity="end"
