@@ -15,19 +15,25 @@
         android:theme="@style/Theme.TES">
         <activity
             android:name=".MensajeriaActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ContractHistoryActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".TalacherosActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".SpecialtyActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SpecialtyActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ChatActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SignInActivity"
             android:exported="true"

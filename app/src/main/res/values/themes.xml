@@ -1,9 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.TES" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Modo oscuro desactivado -->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_700</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorSurface">@color/principal_yellow</item>
+        <item name="colorPrimary">@color/principal_yellow</item>
+        <item name="colorPrimaryVariant">@color/principal_yellow2</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +15,21 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- toolbar -->
+        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.PrimarySurface</item>
+        <item name="actionOverflowButtonStyle">@style/ToolbarStyle.Overflow</item>
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
+        <!-- menús -->
+        <item name="popupTheme">@style/Theme.MaterialComponents.DayNight</item>
+
     </style>
+
+    <style name="ToolbarStyle.Overflow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/black</item>
+    </style>
+
+    <style name="Toolbar.Button.Navigation.Tinted" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/black</item>
+    </style>
+
 </resources>

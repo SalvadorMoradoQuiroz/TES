@@ -15,6 +15,7 @@ public class TalacherosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_talacheros);
+        setTitle("Talacheros disponibles");
 
         listView_Talacheros = findViewById(R.id.listView_Talacheros);
         AdapterListViewTalachero adapterListViewTalachero = new AdapterListViewTalachero(TalacherosActivity.this, R.layout.item_talachero, DatosPrueba.getListTalacheros());

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 materialButton_BuscarT_VerC.setText("BUSCAR TALACHERO");
             }
         } else {
-            Toast.makeText(MainActivity.this, "Hubo un error al cargar la actividad ", Toast.LENGTH_LONG).show();
+            //Toast.makeText(MainActivity.this, "Hubo un error al cargar la actividad ", Toast.LENGTH_LONG).show();
         }
         setInformation();
         buttons();
