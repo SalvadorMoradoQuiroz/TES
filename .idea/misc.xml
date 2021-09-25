@@ -7,9 +7,11 @@
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.15885416666666666" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.15885416666666666" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_baseline_chat_bubble_outline_24.xml" value="0.2169230769230769" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_entregado.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/ic_visto.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/roundcorner.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/drawable/roundcorner2.xml" value="0.2169230769230769" />
-        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_chat.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_chat.xml" value="0.22" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_contract_history.xml" value="0.2" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_main.xml" value="0.22" />
@@ -17,6 +19,8 @@
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_sign_in.xml" value="0.22" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_specialty.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/activity_talacheros.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/chat_item_left.xml" value="0.33" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/chat_item_right.xml" value="0.33" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/dialgo_recuperar_password.xml" value="0.15307971014492755" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/dialog_accept_contract.xml" value="0.1213768115942029" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/dialog_decision.xml" value="0.1213768115942029" />
@@ -26,6 +30,7 @@
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_contrato_sin_finalizar.xml" value="0.25" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_contratos_finalizados.xml" value="0.33" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_especialidad.xml" value="0.2" />
+        <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_mensaje.xml" value="0.33" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_mensajeria.xml" value="0.129981884057971" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_mensajeria_cliente.xml" value="0.33" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/layout/item_talachero.xml" value="0.33" />
