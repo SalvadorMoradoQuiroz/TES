@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tecnm.campusuruapan.pi.tes.adapters.AdapterChats;
+import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseFirestoreHelper;
 import com.tecnm.campusuruapan.pi.tes.models.Chats;
 
 import java.text.SimpleDateFormat;
@@ -21,13 +23,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class ChatActivity extends AppCompatActivity {
-
+    private String tipoUsuario;
     private TextView textView_NombreDestinatario_Chat;
     private EditText editTextTextMultiLine_Mensaje;
     private ImageView imageView_ButtonEnviar;
     private AdapterChats adapterChats;
     private List<Chats> arrayChats;
     private RecyclerView recyclerView_Chats;
+    private ImageButton imageButton_propuesta_contrato_chat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class ChatActivity extends AppCompatActivity {
         textView_NombreDestinatario_Chat = findViewById(R.id.textView_NombreDestinatario_Chat);
         editTextTextMultiLine_Mensaje = findViewById(R.id.editTextTextMultiLine_Mensaje);
         imageView_ButtonEnviar = findViewById(R.id.imageView_ButtonEnviar);
+        imageButton_propuesta_contrato_chat = findViewById(R.id.imageButton_propuesta_contrato_chat);
 
         Bundle parametros = this.getIntent().getExtras();
         textView_NombreDestinatario_Chat.setText(parametros.getString("NombreTalachero"));
@@ -72,5 +76,11 @@ public class ChatActivity extends AppCompatActivity {
                 }
             }
         });
+
+        tipoUsuario = FirebaseFirestoreHelper.user.getTipo_user();
+
+        if(tipoUsuario.equalsIgnoreCase("cliente")){
+            imageButton_propuesta_contrato_chat.setVisibility(View.INVISIBLE);
+        }
     }
 }

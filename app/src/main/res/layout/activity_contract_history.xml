@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView_ContratosPendientes"
+            android:id="@+id/textView_ContratosRechazados"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -42,7 +42,7 @@
             android:textStyle="bold" />
 
         <ListView
-            android:id="@+id/listView_ContratosPendientes"
+            android:id="@+id/listView_ContratosrRechazados"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp" />

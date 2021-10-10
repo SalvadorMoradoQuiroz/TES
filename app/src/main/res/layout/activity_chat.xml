@@ -27,27 +27,28 @@
 
             <ImageButton
                 android:id="@+id/imageButton3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|center_horizontal|center_vertical"
-                android:layout_weight="0.20"
+                android:layout_weight="0.1"
                 android:backgroundTint="@color/principal_yellow"
                 android:contentDescription="@string/todo"
                 android:minHeight="40dp"
                 app:srcCompat="@drawable/ic_baseline_arrow_back_24"
-                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+                tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,TouchTargetSizeCheck" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.60"
+                android:gravity="center|center_horizontal|center_vertical"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/imageView12"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="15dp"
                     android:contentDescription="@string/todo"
@@ -59,7 +60,7 @@
                     android:id="@+id/textView_NombreDestinatario_Chat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
                     android:text="@string/borrar"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -68,11 +69,11 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="wrap_content"
+                android:id="@+id/imageButton_propuesta_contrato_chat"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|center_horizontal|center_vertical"
-                android:layout_weight="0.20"
+                android:layout_weight="0.15"
                 android:backgroundTint="@color/principal_yellow"
                 android:contentDescription="@string/todo"
                 android:minHeight="40dp"

@@ -60,6 +60,7 @@
     <string name="actualizar">Actualizar</string>
     <string name="cerrar_sesi_n">Cerrar sesión</string>
     <string name="trabajo_realizado">Trabajo realizado:</string>
-    <string name="contratos_pendientes">Contratos pendientes</string><!--Borrar-->
+    <string name="contratos_pendientes">Contratos rechazados</string>
+    <string name="contratos_sin_aceptar">Contratos sin aceptar</string><!--Borrar-->
 
 </resources>

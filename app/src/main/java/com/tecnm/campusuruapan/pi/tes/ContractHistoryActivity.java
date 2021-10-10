@@ -8,10 +8,11 @@ import android.widget.ListView;
 import com.tecnm.campusuruapan.pi.tes.adapters.AdapterListViewContratoFinalizado;
 import com.tecnm.campusuruapan.pi.tes.adapters.AdapterListViewContratoPendiente;
 import com.tecnm.campusuruapan.pi.tes.adapters.AdapterListViewContratoSinFinalizar;
+import com.tecnm.campusuruapan.pi.tes.adapters.AdapterListViewContratosRechazados;
 import com.tecnm.campusuruapan.pi.tes.datosDePrueba.DatosPrueba;
 
 public class ContractHistoryActivity extends AppCompatActivity {
-    private ListView listView_ContratosPendientes;
+    private ListView listView_ContratosRechazados;
     private ListView listView_ContratosSinFinalizar;
     private ListView listView_ContratosFinalizados;
 
@@ -21,12 +22,12 @@ public class ContractHistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_contract_history);
         setTitle("Historial de contratos");
 
-        listView_ContratosPendientes = findViewById(R.id.listView_ContratosPendientes);
+        listView_ContratosRechazados = findViewById(R.id.listView_ContratosrRechazados);
         listView_ContratosSinFinalizar = findViewById(R.id.listView_ContratosSinFinalizar);
         listView_ContratosFinalizados = findViewById(R.id.listView_ContratosFinalizados);
 
-        AdapterListViewContratoPendiente adapterListViewCP = new AdapterListViewContratoPendiente(ContractHistoryActivity.this, R.layout.item_contrato_pendiente, DatosPrueba.getListContratosPendientes());
-        listView_ContratosPendientes.setAdapter(adapterListViewCP);
+        AdapterListViewContratosRechazados adapterListViewCR = new AdapterListViewContratosRechazados(ContractHistoryActivity.this, R.layout.item_contrato_rechazados, DatosPrueba.getListContratosPendientes());
+        listView_ContratosRechazados.setAdapter(adapterListViewCR);
 
         AdapterListViewContratoSinFinalizar adapterListViewCSF = new AdapterListViewContratoSinFinalizar(ContractHistoryActivity.this, R.layout.item_contrato_sin_finalizar, DatosPrueba.getListContratosSinFinalizar());
         listView_ContratosSinFinalizar.setAdapter(adapterListViewCSF);
