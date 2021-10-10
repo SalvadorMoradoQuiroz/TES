@@ -16,7 +16,8 @@
         <activity
             android:name=".MensajeriaActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ContractHistoryActivity"
             android:exported="true"
@@ -29,7 +30,8 @@
         <activity
             android:name=".SpecialtyActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ChatActivity"
             android:exported="true"
