@@ -328,14 +328,14 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="0.8"
                     android:backgroundTint="@color/principal_yellow"
-                    android:enabled="false"
                     android:hint="@string/especialidad"
                     app:boxStrokeColor="@color/principal_yellow"
                     app:errorEnabled="true"
                     app:hintTextColor="@color/principal_yellow">
 
                     <EditText
-                        android:id="@+id/editText"
+                        android:editable="false"
+                        android:id="@+id/editText_Especialidad"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

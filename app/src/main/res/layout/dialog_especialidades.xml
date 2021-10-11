@@ -39,7 +39,7 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_albanileria_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                     android:backgroundTint="@color/principal_yellow"
                     android:text="@string/alba_iler_a" />
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_carpinteria_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_cerrajeria_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:backgroundTint="@color/principal_yellow"
                     android:text="@string/cerrajer_a" />
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_electricista_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_fontaneria_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                     android:backgroundTint="@color/principal_yellow"
                     android:text="@string/fontaner_a" />
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_herreria_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_mecanica_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                     android:backgroundTint="@color/principal_yellow"
                     android:text="@string/m_canica_automotriz" />
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_pintor_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_plomeria_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
                     android:backgroundTint="@color/principal_yellow"
                     android:text="@string/plomer_a" />
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_mudanza_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -154,7 +154,7 @@
                 android:orientation="horizontal"
                 android:weightSum="1">
 
-                <RadioButton
+                <CheckBox
                     android:id="@+id/radioButton_otro_especialidad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -173,7 +173,8 @@
                     app:boxStrokeColor="@color/principal_yellow"
                     app:hintTextColor="@color/principal_yellow">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <EditText
+                        android:id="@+id/editText_OtroOficio"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"

@@ -2,15 +2,23 @@ package com.tecnm.campusuruapan.pi.tes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
+import com.tecnm.campusuruapan.pi.tes.adapters.AdapterListViewContratoPendiente;
+import com.tecnm.campusuruapan.pi.tes.datosDePrueba.DatosPrueba;
 import com.tecnm.campusuruapan.pi.tes.helpers.Constantes;
 import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseAuthHelper;
 import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
@@ -70,10 +78,110 @@ public class SignInActivity extends AppCompatActivity implements Information {
             }
         });
 
-        textInputLayout_Especialidad.setOnClickListener(new View.OnClickListener() {
+        textInputLayout_Especialidad.getEditText().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Especialidad", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Especialidad", Toast.LENGTH_SHORT).show();
+                abrirMenuEspecialidades();
+            }
+        });
+    }
+
+    private void abrirMenuEspecialidades() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialog_especialidades, null);
+        builder.setView(view);
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        //Nota: Se deben renombrar las variables.
+        final CheckBox radioButton_albanileria_especialidad = dialog.findViewById(R.id.radioButton_albanileria_especialidad);
+        final CheckBox radioButton_carpinteria_especialidad = dialog.findViewById(R.id.radioButton_carpinteria_especialidad);
+        final CheckBox radioButton_cerrajeria_especialidad = dialog.findViewById(R.id.radioButton_cerrajeria_especialidad);
+        final CheckBox radioButton_electricista_especialidad = dialog.findViewById(R.id.radioButton_electricista_especialidad);
+        final CheckBox radioButton_fontaneria_especialidad = dialog.findViewById(R.id.radioButton_fontaneria_especialidad);
+        final CheckBox radioButton_herreria_especialidad = dialog.findViewById(R.id.radioButton_herreria_especialidad);
+        final CheckBox radioButton_mecanica_especialidad = dialog.findViewById(R.id.radioButton_mecanica_especialidad);
+        final CheckBox radioButton_pintor_especialidad = dialog.findViewById(R.id.radioButton_pintor_especialidad);
+        final CheckBox radioButton_plomeria_especialidad = dialog.findViewById(R.id.radioButton_plomeria_especialidad);
+        final CheckBox radioButton_mudanza_especialidad = dialog.findViewById(R.id.radioButton_mudanza_especialidad);
+        final CheckBox radioButton_otro_especialidad = dialog.findViewById(R.id.radioButton_otro_especialidad);
+        final TextInputLayout textInputLayout_otro_especialidad = dialog.findViewById(R.id.textInputLayout_otro_especialidad);
+        final MaterialButton materialButton_registrar_especilidades = dialog.findViewById(R.id.materialButton_registrar_especilidades);
+        final MaterialButton materialButton_salir_especialidades = dialog.findViewById(R.id.materialButton_salir_especialidades);
+
+        materialButton_registrar_especilidades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textInputLayout_Especialidad.getEditText().setText("");
+                boolean seleccion = false;
+                String especialidadesSelecciondas = "";
+                if(radioButton_albanileria_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Albañilería, ";
+                }
+                if(radioButton_carpinteria_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Carpintería, ";
+                }
+                if(radioButton_cerrajeria_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Cerrajería, ";
+                }
+                if(radioButton_electricista_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Electricista, ";
+                }
+                if(radioButton_fontaneria_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Fontanería, ";
+                }
+                if(radioButton_herreria_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Herrería, ";
+                }
+                if(radioButton_mecanica_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Mecánica, ";
+                }
+                if(radioButton_pintor_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Pintor, ";
+                }
+                if(radioButton_plomeria_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Plomería, ";
+                }
+                if(radioButton_mudanza_especialidad.isChecked()){
+                    seleccion = true;
+                    especialidadesSelecciondas = especialidadesSelecciondas + "Mudanza, ";
+                }
+                if(radioButton_otro_especialidad.isChecked()){
+                    seleccion = true;
+                    String otro = textInputLayout_otro_especialidad.getEditText().getText().toString();
+                    if(!otro.isEmpty()){
+                        especialidadesSelecciondas = especialidadesSelecciondas + otro;
+                    }else{
+                        seleccion = false;
+                    }
+                }
+
+                if(seleccion){
+                    textInputLayout_Especialidad.getEditText().setText(especialidadesSelecciondas.substring(0, especialidadesSelecciondas.length()-2));
+                    dialog.dismiss();
+                }else{
+                    Snackbar.make(view, "Debes seleccionar al menos una especialidad. Si marcaste Otro, debes escribir ese oficio.", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        materialButton_salir_especialidades.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
             }
         });
     }
