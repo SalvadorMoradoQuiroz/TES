@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -160,6 +162,41 @@ public class FirebaseFirestoreHelper {
 
             }
         });
+
+    }
+
+    public void updateDataUser(final ProgressDialog dialog, final Context context, final String nombre, final String apellido,final String telefono, final String ubicacion, final String especialidad, final String tipo, final Information information){
+        Map<String, Object> data = new HashMap<>();
+        data.put("nombre", nombre.trim());
+        data.put("apellidos", apellido.trim());
+        data.put("telefono", telefono.trim());
+        data.put("ubicacion", ubicacion.trim());
+
+        if(tipo.equalsIgnoreCase("talachero")){
+            data.put("especialidad", especialidad.trim());
+        }
+
+        UsuariosCollection.document(user.getId()).update(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        user.setNombre(nombre.trim());
+                        user.setApellidos(apellido.trim());
+                        user.setTelefono(telefono.trim());
+                        user.setUbicacion(ubicacion.trim());
+                        user.setEspecialidad(especialidad.trim());
+                        information.getMessage("¡Datos actualizados!");
+                        dialog.dismiss();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        information.getMessage("Datos no actualizados, verifica tu conexión a Internet");
+                        new AlertDialogPersonalized().alertDialogInformacion("Datos no actualizados, verifica tu conexión a Internet", context);
+                        dialog.dismiss();
+                    }
+                });
 
     }
 

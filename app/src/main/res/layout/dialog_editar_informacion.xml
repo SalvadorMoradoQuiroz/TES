@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:text="@string/recuperar_informaci_n"
+            android:text="Actualizar información"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -63,9 +63,10 @@
                     app:hintTextColor="@color/principal_yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -100,9 +101,9 @@
                     app:hintTextColor="@color/principal_yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -137,9 +138,10 @@
                     app:hintTextColor="@color/principal_yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -176,53 +178,17 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:ignore="TextContrastCheck" />
+                        android:inputType="textCapWords"
+                        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayout_Especialidad_editar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView_pass_editar"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="0.05"
-                    android:contentDescription="@string/todo"
-                    app:srcCompat="@drawable/ic_baseline_lock_24" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_contraseña_editar"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="0.75"
-                    android:backgroundTint="@color/principal_yellow"
-                    android:hint="@string/contrase_a"
-                    app:boxStrokeColor="@color/principal_yellow"
-                    app:hintTextColor="@color/principal_yellow">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        tools:ignore="TextContrastCheck,SpeakableTextPresentCheck"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout_especialidad_sign"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -237,24 +203,24 @@
                     app:srcCompat="@drawable/ic_baseline_home_repair_service_24" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout_Especialidad_editar"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:id="@+id/textInputLayout_especialidad_editar"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight="0.8"
+                    android:layout_weight="0.75"
                     android:backgroundTint="@color/principal_yellow"
                     android:hint="@string/especialidad"
                     app:boxStrokeColor="@color/principal_yellow"
                     app:hintTextColor="@color/principal_yellow">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/autoCompleteTextView"
+                    <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:inputType="none"
-                        tools:ignore="TextContrastCheck" />
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:inputType="textCapWords"
+                        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
