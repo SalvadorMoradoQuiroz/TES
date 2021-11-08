@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements Information {
                     textInputLayout_Ubicacion_editar.setError(ERROR);
                 }
 
-                if(FirebaseFirestoreHelper.user.getEspecialidad().equalsIgnoreCase("Cliente")){
+                if(FirebaseFirestoreHelper.user.getTipo_user().equalsIgnoreCase("Cliente")){
                     flag_especialidad = true;
                 }else{
                     if(!textInputLayout_especialidad_editar.getEditText().getText().toString().isEmpty()){
@@ -264,8 +264,6 @@ public class MainActivity extends AppCompatActivity implements Information {
                             textInputLayout_apellidos_editar.getEditText().getText().toString(), textInputLayout_Telefono_editar.getEditText().getText().toString(),
                             textInputLayout_Ubicacion_editar.getEditText().getText().toString(), textInputLayout_especialidad_editar.getEditText().getText().toString(),
                             FirebaseFirestoreHelper.user.getTipo_user(), MainActivity.this);
-                    setInformation();
-
                     dialogEditarPerfil.dismiss();
                 }
             }
@@ -410,5 +408,8 @@ public class MainActivity extends AppCompatActivity implements Information {
     @Override
     public void getMessage(String message) {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+        if(message.equals("¡Datos actualizados!")){
+            setInformation();
+        }
     }
 }
