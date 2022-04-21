@@ -30,8 +30,7 @@
 
 
     <string name="direcci_n">Cerro de Punhuato 27 interior 7, infonavit balcones, Uruapan</string> <!--Cambiar-->
-    <string name="email">mich_ed_ra_pu_632@gmail.com</string><!--Cambiar-->
-    <string name="borrar">Michelle Edith Rayas Cervantes</string>
+    <string name="email">pulido11@gmail.com</string><!--Cambiar-->
     <string name="escribe_un_mensaje">Escribe un mensaje...</string>
     <string name="_100_talachos_disponibles">100 Talachos disponibles</string>
     <string name="nombre_contrato_pendiente">Salvador Morado Quiroz</string>
@@ -61,6 +60,7 @@
     <string name="cerrar_sesi_n">Cerrar sesión</string>
     <string name="trabajo_realizado">Trabajo realizado:</string>
     <string name="contratos_pendientes">Contratos rechazados</string>
-    <string name="contratos_sin_aceptar">Contratos sin aceptar</string><!--Borrar-->
+    <string name="contratos_sin_aceptar">Contratos sin aceptar</string>
+    <string name="antonio_pulido">Antonio Pulido</string><!--Borrar-->
 
 </resources>

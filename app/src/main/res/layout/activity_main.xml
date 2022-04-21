@@ -87,7 +87,7 @@
                                     android:layout_marginTop="15dp"
                                     android:layout_marginEnd="10dp"
                                     android:layout_marginBottom="15dp"
-                                    android:text="@string/borrar"
+                                    android:text="@string/antonio_pulido"
                                     android:textColor="@color/black"
                                     android:textSize="22sp"
                                     android:textStyle="bold" />

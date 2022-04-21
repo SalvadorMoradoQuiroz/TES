@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_chat.xml" value="0.1947463768115942" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_login.xml" value="0.19067028985507245" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_mensajeria.xml" value="0.19067028985507245" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_sign_in.xml" value="0.19067028985507245" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_specialty.xml" value="0.20416666666666666" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_talacheros.xml" value="0.20416666666666666" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/dialog_accept_contract.xml" value="0.20416666666666666" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/dialog_editar_informacion.xml" value="0.19067028985507245" />
+        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/item_talachero.xml" value="0.19067028985507245" />
+        <entry key="..\:/Salvador/Documents/TES/app/src/main/res/layout/activity_chat.xml" value="0.11503623188405797" />
+        <entry key="..\:/Salvador/Documents/TES/app/src/main/res/layout/activity_contract_history.xml" value="0.11503623188405797" />
+        <entry key="..\:/Salvador/Documents/TES/app/src/main/res/layout/item_especialidad.xml" value="0.11503623188405797" />
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_article_white_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2703125" />
@@ -60,7 +73,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
