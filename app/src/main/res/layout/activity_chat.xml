@@ -61,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|center_horizontal|center_vertical"
-                    android:text="@string/borrar"
+                    android:text="@string/antonio_pulido"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />

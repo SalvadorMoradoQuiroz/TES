@@ -11,10 +11,11 @@ public class User {
     private String password;
     private String especialidad;
     private boolean activo;
+    private String uri_image;
 
     public User(){}
 
-    public User(String id, String tipo_user, String nombre, String apellidos, String telefono, String ubicacion, String email, String password, boolean activo, String especialidad) {
+    public User(String id, String tipo_user, String nombre, String apellidos, String telefono, String ubicacion, String email, String password, boolean activo, String especialidad, String uri_image) {
         this.id = id;
         this.tipo_user = tipo_user;
         this.nombre = nombre;
@@ -25,9 +26,10 @@ public class User {
         this.password = password;
         this.activo = activo;
         this.especialidad = especialidad;
+        this.uri_image =  uri_image;
     }
 
-    public User(String id, String tipo_user, String nombre, String apellidos, String telefono, String ubicacion, String email, String password, boolean activo) {
+    public User(String id, String tipo_user, String nombre, String apellidos, String telefono, String ubicacion, String email, String password, boolean activo, String uri_image) {
         this.id = id;
         this.tipo_user = tipo_user;
         this.nombre = nombre;
@@ -37,6 +39,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.activo = activo;
+        this.uri_image =  uri_image;
     }
 
     public String getTipo_user() {
@@ -117,5 +120,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUriImage() {
+        return uri_image;
+    }
+
+    public void setUriImage(String uri_image) {
+        this.uri_image = uri_image;
     }
 }

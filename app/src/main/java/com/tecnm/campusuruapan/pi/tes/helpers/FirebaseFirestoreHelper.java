@@ -110,19 +110,19 @@ public class FirebaseFirestoreHelper {
                     if (Objects.requireNonNull(document).exists()) {
                         Map<String, Object> data = document.getData();
 
-                        if(String.valueOf(data.get("tipo_user")).equals("CLIENTE")){
+                        if (String.valueOf(data.get("tipo_user")).equals("CLIENTE")) {
                             //Cliente
-                            user = new User(document.getId(), String.valueOf(data.get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"));
-                        }else{
+                            user = new User(document.getId(), String.valueOf(data.get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"), String.valueOf(data.get("uri_image")));
+                        } else {
                             //Talachero
-                            user = new User(document.getId(), String.valueOf(data.get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"), String.valueOf(data.get("especialidad")));
+                            user = new User(document.getId(), String.valueOf(data.get("tipo_user")), String.valueOf(data.get("nombre")), String.valueOf(data.get("apellidos")), String.valueOf(data.get("telefono")), String.valueOf(data.get("ubicacion")), String.valueOf(data.get("email")), String.valueOf(data.get("password")), (boolean) data.get("activo"), String.valueOf(data.get("especialidad")), String.valueOf(data.get("uri_image")));
                         }
 
                         if ((boolean) Objects.requireNonNull(document.get("activo"))) {
                             information.getMessage("Bienvenido " + user.getNombre() + " " + user.getApellidos());
                             //Se debe redigir...
                             Intent intent = new Intent(context, MainActivity.class);
-                            intent.putExtra("ROL",user.getTipo_user());
+                            intent.putExtra("ROL", user.getTipo_user());
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             context.startActivity(intent);
                             ((Activity) context).finish();
@@ -136,7 +136,7 @@ public class FirebaseFirestoreHelper {
                                         @Override
                                         public void onClick(DialogInterface alertDialog, int i) {
                                             FirebaseAuthHelper.mAuth.signOut();
-                                            user=null;
+                                            user = null;
                                             Intent intent = new Intent(context, LoginActivity.class);
                                             context.startActivity(intent);
                                             ((Activity) context).finish();
@@ -159,20 +159,19 @@ public class FirebaseFirestoreHelper {
                     ((Activity) context).finish();
                 }
                 dialog.dismiss();
-
             }
         });
 
     }
 
-    public void updateDataUser(final ProgressDialog dialog, final Context context, final String nombre, final String apellido,final String telefono, final String ubicacion, final String especialidad, final String tipo, final Information information){
+    public void updateDataUser(final ProgressDialog dialog, final Context context, final String nombre, final String apellido, final String telefono, final String ubicacion, final String especialidad, final String tipo, final Information information) {
         Map<String, Object> data = new HashMap<>();
         data.put("nombre", nombre.trim());
         data.put("apellidos", apellido.trim());
         data.put("telefono", telefono.trim());
         data.put("ubicacion", ubicacion.trim());
 
-        if(tipo.equalsIgnoreCase("talachero")){
+        if (tipo.equalsIgnoreCase("talachero")) {
             data.put("especialidad", especialidad.trim());
         }
 
@@ -200,75 +199,24 @@ public class FirebaseFirestoreHelper {
 
     }
 
-    /*public void updateDataAsesor(final String nombre, final String apellido, final String carrera, final ProgressDialog dialog, final Status status) {
-        Map<String, Object> asesorMap = new HashMap<>();
-        asesorMap.put("nombre", nombre);
-        asesorMap.put("apellido", apellido);
-        asesorMap.put("carrera", carrera);
-        AsesoresCollection.document(asesor.getUid()).update(asesorMap)
+    public void updateImage(final String uri_image, final Information information) {
+        Map<String, Object> usuarioMap = new HashMap<>();
+        usuarioMap.put("uri_image", uri_image);
+
+        UsuariosCollection.document(user.getId()).update(usuarioMap)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        asesor.setNombre(nombre);
-                        asesor.setApellidos(apellido);
-                        asesor.setCarrera(carrera);
-                        status.status("Datos actualizados");
-                        dialog.dismiss();
+                        user.setUriImage(uri_image);
+                        information.getMessage("Datos actualizados");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        status.status("Datos no actualizados, verifica tu conexión a Internet");
-                        dialog.dismiss();
+                        information.getMessage("Imagen no actualizada, verifica tu conexión a Internet");
                     }
                 });
 
     }
-
-    public void updateImageAsesor(final String uri_image, final Status status) {
-        Map<String, Object> asesorMap = new HashMap<>();
-        asesorMap.put("uri_image", uri_image);
-
-        AsesoresCollection.document(asesor.getUid()).update(asesorMap)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        asesor.setuRI_image(uri_image);
-                        status.status("Datos actualizados");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        status.status("Imagen no actualizada, verifica tu conexión a Internet");
-                    }
-                });
-
-    }
-
-    public void getAllAsesores(final Status status, final ProgressDialog dialog, ListaAsesores listaAsesores) {
-
-        AsesoresCollection.get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isComplete()) {
-                            String nombre;
-                            Map<String, String> asesores = new HashMap<>();
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                nombre = document.getData().get("nombre").toString() + " " + document.getData().get("apellido").toString();
-                                asesores.put(document.getId(), nombre);
-                                //Log.d(TAG, document.getId() + " => " + document.getData());
-                            }
-                            listaAsesores.getAsesoresAll(asesores);
-                            status.status("Contactos obtenidos");
-                        } else {
-                            status.status("Error al obtener los asesores");
-                        }
-                        dialog.dismiss();
-                    }
-                });
-    }*/
-
 }

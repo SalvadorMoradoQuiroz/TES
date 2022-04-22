@@ -1,10 +1,19 @@
 package com.tecnm.campusuruapan.pi.tes;
 
+import static androidx.core.app.ActivityCompat.startActivityForResult;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,11 +22,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -26,9 +39,19 @@ import com.tecnm.campusuruapan.pi.tes.adapters.AdapterListViewContratoPendiente;
 import com.tecnm.campusuruapan.pi.tes.datosDePrueba.DatosPrueba;
 import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseAuthHelper;
 import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseFirestoreHelper;
+import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseStorageHelper;
+import com.tecnm.campusuruapan.pi.tes.helpers.ImagesCompressHelper;
 import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Objects;
+
+import id.zelory.compressor.Compressor;
+
 public class MainActivity extends AppCompatActivity implements Information {
+    private final static int GALLERY_INTENT = 1;
+    private File imagen = null;
     private String tipo;
     private TextView textView_Nombre;
     private TextView textView_Ubicacion;
@@ -39,10 +62,13 @@ public class MainActivity extends AppCompatActivity implements Information {
     private FloatingActionButton floatingActionButton_contratos_propuestos;
     private FirebaseAuthHelper firebaseAuthHelper = new FirebaseAuthHelper();
     private ImageButton imageButton_EditInfoPerfil;
+    private ImageButton imageButton_EditFotoPerfil;
+    private ImageView imageView_FotoPerfil;
     private String ERROR = "Campo requerido";
     private FirebaseFirestoreHelper firebaseFirestoreHelper = new FirebaseFirestoreHelper();
+    private FirebaseStorageHelper firebaseStorageHelper = new FirebaseStorageHelper();
     //private FirebaseFirestoreHelper firestoreHelper = new FirebaseFirestoreHelper();
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +83,8 @@ public class MainActivity extends AppCompatActivity implements Information {
         materialButton_AbrirMensajeria = findViewById(R.id.materialButton_AbrirMensajeria);
         floatingActionButton_contratos_propuestos = findViewById(R.id.floatingActionButton_contratos_propuestos);
         imageButton_EditInfoPerfil = findViewById(R.id.imageButton_EditInfoPerfil);
-
+        imageButton_EditFotoPerfil = findViewById(R.id.imageButton_EditFotoPerfil);
+        imageView_FotoPerfil = findViewById(R.id.imageView_FotoPerfil);
 
 
         tipo = FirebaseFirestoreHelper.user.getTipo_user();
@@ -65,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements Information {
         if (tipo.equals("CLIENTE")) {
             textView_Especialidad.setVisibility(View.GONE);
             materialButton_BuscarT_VerC.setText("BUSCAR TALACHERO");
-        }else{
+        } else {
             floatingActionButton_contratos_propuestos.setVisibility(View.GONE);
         }
 
@@ -73,11 +100,18 @@ public class MainActivity extends AppCompatActivity implements Information {
         buttons();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebaseStorageHelper.setInformationListener(this);
+    }
+
     private void setInformation() {
-        textView_Nombre.setText(FirebaseFirestoreHelper.user.getNombre() + " "+FirebaseFirestoreHelper.user.getApellidos());
-        textView_Especialidad.setText("Especialidad: "+FirebaseFirestoreHelper.user.getEspecialidad());
-        textView_Ubicacion.setText("Ubicación: "+FirebaseFirestoreHelper.user.getUbicacion());
-        textView_Correo.setText("Email: "+FirebaseFirestoreHelper.user.getEmail());
+        textView_Nombre.setText(FirebaseFirestoreHelper.user.getNombre() + " " + FirebaseFirestoreHelper.user.getApellidos());
+        textView_Especialidad.setText("Especialidad: " + FirebaseFirestoreHelper.user.getEspecialidad());
+        textView_Ubicacion.setText("Ubicación: " + FirebaseFirestoreHelper.user.getUbicacion());
+        textView_Correo.setText("Email: " + FirebaseFirestoreHelper.user.getEmail());
+        setImage(FirebaseFirestoreHelper.user.getUriImage());
     }
 
     private void buttons() {
@@ -85,10 +119,10 @@ public class MainActivity extends AppCompatActivity implements Information {
             @Override
             public void onClick(View view) {
                 //Buscar Talachero
-                if(tipo.equals("CLIENTE")){
+                if (tipo.equals("CLIENTE")) {
                     Intent intent = new Intent(MainActivity.this, SpecialtyActivity.class);
                     startActivity(intent);
-                }else{
+                } else {
                     //TALACHERO. Ver Contratos
                     Intent intent = new Intent(MainActivity.this, ContractHistoryActivity.class);
                     startActivity(intent);
@@ -118,12 +152,45 @@ public class MainActivity extends AppCompatActivity implements Information {
                 mostrarDialogEditarPerfil();
             }
         });
+
+        imageButton_EditFotoPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder.setTitle("Opciones:");
+                alertDialogBuilder.setMessage("Elige una opción a realizar, sino da click fuera del recuadro.");
+                alertDialogBuilder.setPositiveButton("Modificar foto.",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface alertDialog, int i) {
+                                Intent intent = new Intent(Intent.ACTION_PICK);
+                                intent.setType("image/*");
+                                startActivityForResult(Intent.createChooser(intent, "Selecciona una imagen"), GALLERY_INTENT);
+                                alertDialog.cancel();
+                            }
+                        });
+                alertDialogBuilder.setNegativeButton("Eliminar foto actual.", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface alertDialog, int i) {
+                        if (!FirebaseFirestoreHelper.user.getUriImage().equals("")) {
+                            firebaseStorageHelper.deleteImage(FirebaseFirestoreHelper.user.getId());
+                            setImage("");
+                        } else {
+                            getMessage("No tienes ninguna foto agregada en el sistema.");
+                        }
+                        alertDialog.cancel();
+                    }
+                });
+                alertDialogBuilder.show();
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.overflow, menu);
-        if(tipo.equalsIgnoreCase("talachero")){
+        if (tipo.equalsIgnoreCase("talachero")) {
             menu.removeItem(R.id.item_contratos_propuestos);
         }
 
@@ -149,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements Information {
         return super.onOptionsItemSelected(item);
     }
 
-    private void dialogContratosPendientes(){
+    private void dialogContratosPendientes() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
@@ -165,7 +232,7 @@ public class MainActivity extends AppCompatActivity implements Information {
     }
 
 
-    private void mostrarDialogEditarPerfil(){
+    private void mostrarDialogEditarPerfil() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
 
@@ -185,9 +252,9 @@ public class MainActivity extends AppCompatActivity implements Information {
         final MaterialButton materialButton_salir_editar = dialogEditarPerfil.findViewById(R.id.materialButton_salir_editar);
         final MaterialButton materialButton_actualizar_editar = dialogEditarPerfil.findViewById(R.id.materialButton_actualizar_editar);
 
-        if(FirebaseFirestoreHelper.user.getTipo_user().equals("CLIENTE")){
+        if (FirebaseFirestoreHelper.user.getTipo_user().equals("CLIENTE")) {
             linearLayout_Especialidad_editar.setVisibility(View.GONE);
-        } else{
+        } else {
             textInputLayout_especialidad_editar.getEditText().setText(FirebaseFirestoreHelper.user.getEspecialidad());
         }
 
@@ -219,15 +286,15 @@ public class MainActivity extends AppCompatActivity implements Information {
                 boolean flag_ubicacion = false;
                 boolean flag_especialidad = false;
 
-                if(!textInputLayout_Nombre_editar.getEditText().getText().toString().isEmpty()){
+                if (!textInputLayout_Nombre_editar.getEditText().getText().toString().isEmpty()) {
                     flag_nombre = true;
                 } else {
                     textInputLayout_Nombre_editar.setError(ERROR);
                 }
 
-                if(!textInputLayout_apellidos_editar.getEditText().getText().toString().isEmpty()){
+                if (!textInputLayout_apellidos_editar.getEditText().getText().toString().isEmpty()) {
                     flag_apellido = true;
-                }else {
+                } else {
                     textInputLayout_apellidos_editar.setError(ERROR);
                 }
 
@@ -241,23 +308,23 @@ public class MainActivity extends AppCompatActivity implements Information {
                     textInputLayout_Telefono_editar.setError(ERROR);
                 }
 
-                if(!textInputLayout_Ubicacion_editar.getEditText().getText().toString().isEmpty()){
+                if (!textInputLayout_Ubicacion_editar.getEditText().getText().toString().isEmpty()) {
                     flag_ubicacion = true;
-                }else {
+                } else {
                     textInputLayout_Ubicacion_editar.setError(ERROR);
                 }
 
-                if(FirebaseFirestoreHelper.user.getTipo_user().equalsIgnoreCase("Cliente")){
+                if (FirebaseFirestoreHelper.user.getTipo_user().equalsIgnoreCase("Cliente")) {
                     flag_especialidad = true;
-                }else{
-                    if(!textInputLayout_especialidad_editar.getEditText().getText().toString().isEmpty()){
+                } else {
+                    if (!textInputLayout_especialidad_editar.getEditText().getText().toString().isEmpty()) {
                         flag_especialidad = true;
-                    }else {
+                    } else {
                         textInputLayout_especialidad_editar.setError(ERROR);
                     }
                 }
 
-                if(flag_nombre && flag_apellido && flag_telefono && flag_ubicacion && flag_especialidad){
+                if (flag_nombre && flag_apellido && flag_telefono && flag_ubicacion && flag_especialidad) {
                     ProgressDialog dialog = ProgressDialog.show(MainActivity.this, "", "Actualizando..", true);
                     dialog.show();
                     firebaseFirestoreHelper.updateDataUser(dialog, MainActivity.this, textInputLayout_Nombre_editar.getEditText().getText().toString(),
@@ -305,60 +372,60 @@ public class MainActivity extends AppCompatActivity implements Information {
                 textInputLayout_Especialidad.getEditText().setText("");
                 boolean seleccion = false;
                 String especialidadesSelecciondas = "";
-                if(radioButton_albanileria_especialidad.isChecked()){
+                if (radioButton_albanileria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Albañilería, ";
                 }
-                if(radioButton_carpinteria_especialidad.isChecked()){
+                if (radioButton_carpinteria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Carpintería, ";
                 }
-                if(radioButton_cerrajeria_especialidad.isChecked()){
+                if (radioButton_cerrajeria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Cerrajería, ";
                 }
-                if(radioButton_electricista_especialidad.isChecked()){
+                if (radioButton_electricista_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Electricista, ";
                 }
-                if(radioButton_fontaneria_especialidad.isChecked()){
+                if (radioButton_fontaneria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Fontanería, ";
                 }
-                if(radioButton_herreria_especialidad.isChecked()){
+                if (radioButton_herreria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Herrería, ";
                 }
-                if(radioButton_mecanica_especialidad.isChecked()){
+                if (radioButton_mecanica_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Mecánica, ";
                 }
-                if(radioButton_pintor_especialidad.isChecked()){
+                if (radioButton_pintor_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Pintor, ";
                 }
-                if(radioButton_plomeria_especialidad.isChecked()){
+                if (radioButton_plomeria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Plomería, ";
                 }
-                if(radioButton_mudanza_especialidad.isChecked()){
+                if (radioButton_mudanza_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Mudanza, ";
                 }
-                if(radioButton_otro_especialidad.isChecked()){
+                if (radioButton_otro_especialidad.isChecked()) {
                     seleccion = true;
                     String otro = textInputLayout_otro_especialidad.getEditText().getText().toString();
-                    if(!otro.isEmpty()){
+                    if (!otro.isEmpty()) {
                         especialidadesSelecciondas = especialidadesSelecciondas + otro;
-                    }else{
+                    } else {
                         seleccion = false;
                     }
                 }
 
-                if(seleccion){
-                    textInputLayout_Especialidad.getEditText().setText(especialidadesSelecciondas.substring(0, especialidadesSelecciondas.length()-2));
+                if (seleccion) {
+                    textInputLayout_Especialidad.getEditText().setText(especialidadesSelecciondas.substring(0, especialidadesSelecciondas.length() - 2));
                     dialog.dismiss();
-                }else{
+                } else {
                     Snackbar.make(view, "Debes seleccionar al menos una especialidad. Si marcaste Otro, debes escribir ese oficio.", Snackbar.LENGTH_SHORT).show();
                 }
             }
@@ -372,34 +439,34 @@ public class MainActivity extends AppCompatActivity implements Information {
         });
 
         //Marcar especialidades
-        if(especialidades.contains("Albañilería")){
+        if (especialidades.contains("Albañilería")) {
             radioButton_albanileria_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Carpintería")){
+        if (especialidades.contains("Carpintería")) {
             radioButton_carpinteria_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Cerrajería")){
+        if (especialidades.contains("Cerrajería")) {
             radioButton_cerrajeria_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Electricista")){
+        if (especialidades.contains("Electricista")) {
             radioButton_electricista_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Fontanería")){
+        if (especialidades.contains("Fontanería")) {
             radioButton_fontaneria_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Herrería")){
+        if (especialidades.contains("Herrería")) {
             radioButton_herreria_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Mécanica automotriz")){
+        if (especialidades.contains("Mécanica automotriz")) {
             radioButton_mecanica_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Pintor")){
+        if (especialidades.contains("Pintor")) {
             radioButton_pintor_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Plomería")){
+        if (especialidades.contains("Plomería")) {
             radioButton_plomeria_especialidad.setChecked(true);
         }
-        if(especialidades.contains("Servicio de mudanza")){
+        if (especialidades.contains("Servicio de mudanza")) {
             radioButton_mudanza_especialidad.setChecked(true);
         }
 
@@ -408,8 +475,59 @@ public class MainActivity extends AppCompatActivity implements Information {
     @Override
     public void getMessage(String message) {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
-        if(message.equals("¡Datos actualizados!")){
+        if (message.equals("¡Datos actualizados!")) {
             setInformation();
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == GALLERY_INTENT) {
+            try {
+                Uri uri = Objects.requireNonNull(data).getData();
+                imagen = ImagesCompressHelper.from(getApplicationContext(), uri);
+                imagen = new Compressor(getApplicationContext()).compressToFile(imagen);
+
+                setImage(imagen);
+                firebaseStorageHelper.deleteImage(FirebaseFirestoreHelper.user.getId());
+                firebaseStorageHelper.addImage(FirebaseFirestoreHelper.user.getId(), Uri.fromFile(imagen));
+            } catch (IOException | NullPointerException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void setImage(String image_url) {
+        RequestManager rm = Glide.with(getApplicationContext());
+        if (image_url.equals("")) {
+            Bitmap placeholder = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.user);
+            RoundedBitmapDrawable circularBitmapDrawable = RoundedBitmapDrawableFactory.create(getApplicationContext().getResources(), placeholder);
+            circularBitmapDrawable.setCircular(true);
+            rm.load(FirebaseFirestoreHelper.user.getUriImage())
+                    .placeholder(circularBitmapDrawable)
+                    .fitCenter()
+                    .centerCrop()
+                    .apply(RequestOptions.circleCropTransform())
+                    //.apply(RequestOptions.bitmapTransform(new RoundedCorners(16)))
+                    .into(imageView_FotoPerfil);
+        } else {
+            rm.load(FirebaseFirestoreHelper.user.getUriImage())
+                    .fitCenter()
+                    .centerCrop()
+                    .apply(RequestOptions.circleCropTransform())
+                    //.apply(RequestOptions.bitmapTransform(new RoundedCorners(16)))
+                    .into(imageView_FotoPerfil);
+        }
+
+    }
+
+    private void setImage(File file) {
+        Glide.with(getApplicationContext())
+                .load(file)
+                .fitCenter()
+                .centerCrop()
+                .apply(RequestOptions.circleCropTransform())
+                .into(imageView_FotoPerfil);
     }
 }
