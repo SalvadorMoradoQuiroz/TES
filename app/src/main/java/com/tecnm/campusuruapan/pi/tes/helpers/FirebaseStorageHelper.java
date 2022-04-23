@@ -42,7 +42,7 @@ public class FirebaseStorageHelper {
         usuariosFiles.child(uid).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                information.getMessage("Imagen actualizada");
+                information.getMessage("Imagen eliminada");
                 firebaseFirestoreHelper.updateImage("", information);
             }
         }).addOnFailureListener(new OnFailureListener() {

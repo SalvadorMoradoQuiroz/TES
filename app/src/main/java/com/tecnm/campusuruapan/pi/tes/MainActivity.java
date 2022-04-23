@@ -175,7 +175,6 @@ public class MainActivity extends AppCompatActivity implements Information {
                     public void onClick(DialogInterface alertDialog, int i) {
                         if (!FirebaseFirestoreHelper.user.getUriImage().equals("")) {
                             firebaseStorageHelper.deleteImage(FirebaseFirestoreHelper.user.getId());
-                            setImage("");
                         } else {
                             getMessage("No tienes ninguna foto agregada en el sistema.");
                         }
@@ -193,7 +192,6 @@ public class MainActivity extends AppCompatActivity implements Information {
         if (tipo.equalsIgnoreCase("talachero")) {
             menu.removeItem(R.id.item_contratos_propuestos);
         }
-
         return true;
     }
 
@@ -477,6 +475,8 @@ public class MainActivity extends AppCompatActivity implements Information {
         Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
         if (message.equals("¡Datos actualizados!")) {
             setInformation();
+        }else if(message.equals("Imagen eliminada")){
+            setImage("");
         }
     }
 
@@ -504,8 +504,7 @@ public class MainActivity extends AppCompatActivity implements Information {
             Bitmap placeholder = BitmapFactory.decodeResource(getApplicationContext().getResources(), R.drawable.user);
             RoundedBitmapDrawable circularBitmapDrawable = RoundedBitmapDrawableFactory.create(getApplicationContext().getResources(), placeholder);
             circularBitmapDrawable.setCircular(true);
-            rm.load(FirebaseFirestoreHelper.user.getUriImage())
-                    .placeholder(circularBitmapDrawable)
+            rm.load(circularBitmapDrawable)
                     .fitCenter()
                     .centerCrop()
                     .apply(RequestOptions.circleCropTransform())
