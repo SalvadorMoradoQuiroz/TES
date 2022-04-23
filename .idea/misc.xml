@@ -21,6 +21,8 @@
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.2703125" />
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_chat.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_contract_history.xml" value="0.36578947368421055" />
+        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_ganancias.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_login.xml" value="0.333786231884058" />
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_sign_in.xml" value="0.1983695652173913" />
         <entry key="..\:/Users/Antonio Pulido/AndroidStudioProjects/TES/app/src/main/res/layout/activity_specialty.xml" value="0.12360688956433637" />
@@ -73,7 +75,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

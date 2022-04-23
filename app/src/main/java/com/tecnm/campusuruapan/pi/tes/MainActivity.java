@@ -191,6 +191,9 @@ public class MainActivity extends AppCompatActivity implements Information {
         getMenuInflater().inflate(R.menu.overflow, menu);
         if (tipo.equalsIgnoreCase("talachero")) {
             menu.removeItem(R.id.item_contratos_propuestos);
+
+        }else {
+            menu.removeItem(R.id.item_ganacias);
         }
         return true;
     }
@@ -209,6 +212,11 @@ public class MainActivity extends AppCompatActivity implements Information {
 
             case R.id.item_contratos_propuestos:
                 dialogContratosPendientes();
+                break;
+
+            case R.id.item_ganacias:
+                Intent intent = new Intent(MainActivity.this, GananciasActivity.class);
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);

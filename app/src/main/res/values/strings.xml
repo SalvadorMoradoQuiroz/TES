@@ -61,6 +61,21 @@
     <string name="trabajo_realizado">Trabajo realizado:</string>
     <string name="contratos_pendientes">Contratos rechazados</string>
     <string name="contratos_sin_aceptar">Contratos sin aceptar</string>
-    <string name="antonio_pulido">Antonio Pulido</string><!--Borrar-->
+    <string name="antonio_pulido">Antonio Pulido</string>
+    <string name="string_vista">Vista</string>
+    <string name="dinero_inicial">$0.0</string>
+    <string name="cero">0</string>
+    <string name="contratos_finalizados">Contratos finalizados</string>
+    <string name="contratos_inconclusos">Contratos inconclusos</string>
+    <string name="contratos">Contratos:</string>
+    <string name="conversaciones_iniciadas_0">Conversaciones iniciadas: 0</string>
+    <string name="contratos_aceptados_0">Contratos aceptados: 0</string>
+    <string name="tasa_de_contratos_finalizados_0">Tasa de contratos finalizados: 0%</string>
+    <string name="ingresos">Ingresos:</string>
+    <string name="ingresos_totales_0_0">Ingresos totales: $0.0</string>
+    <string name="comisi_n_de_tes_0_0">Comisión de TES: $0.0</string>
+    <string name="ganancias_totales_0_0">Ganancias totales: $0.0</string>
+    <string name="deuda_por_comisiones">Deuda por comisiones:</string>
+    <string name="tasa_de_contratos_aceptados_0">Tasa de contratos aceptados: 0%</string>
 
 </resources>
