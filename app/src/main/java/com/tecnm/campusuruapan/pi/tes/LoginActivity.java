@@ -16,6 +16,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.tecnm.campusuruapan.pi.tes.helpers.Constantes;
 import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseAuthHelper;
 import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseFirestoreHelper;
+import com.tecnm.campusuruapan.pi.tes.helpers.FirebaseQueryHelper;
+import com.tecnm.campusuruapan.pi.tes.helpers.StringHelper;
 import com.tecnm.campusuruapan.pi.tes.interfaces.Information;
 
 import java.util.Objects;
@@ -84,8 +86,7 @@ public class LoginActivity extends AppCompatActivity implements Information {
         materialButton_OlvidarPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
-                startActivity(intent);*/
+                showDialogRecoverPass();
             }
         });
     }
@@ -163,5 +164,52 @@ public class LoginActivity extends AppCompatActivity implements Information {
         } else {
             return false;
         }
+    }
+
+    private void showDialogRecoverPass() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        View view = inflater.inflate(R.layout.dialog_recover_pass, null);
+        builder.setView(view)
+                .setTitle("Recuperar contraseña")
+                .setMessage("Para recuperar tu contraseña ingresa el correo electrónico con el que te registraste y da clic en enviar.");
+
+        final AlertDialog dialogRecoverPass = builder.create();
+        dialogRecoverPass.setCancelable(false);
+        dialogRecoverPass.show();
+
+        final TextInputLayout editText_email_recover = dialogRecoverPass.findViewById(R.id.editText_email_recover);
+        final MaterialButton button_Send_recover = dialogRecoverPass.findViewById(R.id.button_Send_recover);
+        final MaterialButton button_Cancel_recover = dialogRecoverPass.findViewById(R.id.button_Cancel_recover);
+
+        button_Send_recover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                boolean flag_Email = false;
+                if (!editText_email_recover.getEditText().getText().toString().isEmpty()) {
+                    if (new StringHelper().isEmail(editText_email_recover.getEditText().getText().toString())) {
+                        flag_Email = true;
+                    } else {
+                        editText_email_recover.setError("Correo electrónico inválido");
+                    }
+                } else {
+                    editText_email_recover.setError("Correo electrónico requerido");
+                }
+
+                if (flag_Email) {
+                    new FirebaseQueryHelper().BuscarCredenciales(editText_email_recover.getEditText().getText().toString(), LoginActivity.this);
+                    dialogRecoverPass.dismiss();
+                }
+            }
+        });
+
+        button_Cancel_recover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogRecoverPass.dismiss();
+            }
+        });
     }
 }

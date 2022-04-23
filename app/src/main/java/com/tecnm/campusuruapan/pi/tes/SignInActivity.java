@@ -119,60 +119,66 @@ public class SignInActivity extends AppCompatActivity implements Information {
                 textInputLayout_Especialidad.getEditText().setText("");
                 boolean seleccion = false;
                 String especialidadesSelecciondas = "";
-                if(radioButton_albanileria_especialidad.isChecked()){
+                if (radioButton_albanileria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Albañilería, ";
                 }
-                if(radioButton_carpinteria_especialidad.isChecked()){
+                if (radioButton_carpinteria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Carpintería, ";
                 }
-                if(radioButton_cerrajeria_especialidad.isChecked()){
+                if (radioButton_cerrajeria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Cerrajería, ";
                 }
-                if(radioButton_electricista_especialidad.isChecked()){
+                if (radioButton_electricista_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Electricista, ";
                 }
-                if(radioButton_fontaneria_especialidad.isChecked()){
+                if (radioButton_fontaneria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Fontanería, ";
                 }
-                if(radioButton_herreria_especialidad.isChecked()){
+                if (radioButton_herreria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Herrería, ";
                 }
-                if(radioButton_mecanica_especialidad.isChecked()){
+                if (radioButton_mecanica_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Mecánica, ";
                 }
-                if(radioButton_pintor_especialidad.isChecked()){
+                if (radioButton_pintor_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Pintor, ";
                 }
-                if(radioButton_plomeria_especialidad.isChecked()){
+                if (radioButton_plomeria_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Plomería, ";
                 }
-                if(radioButton_mudanza_especialidad.isChecked()){
+                if (radioButton_mudanza_especialidad.isChecked()) {
                     seleccion = true;
                     especialidadesSelecciondas = especialidadesSelecciondas + "Mudanza, ";
                 }
-                if(radioButton_otro_especialidad.isChecked()){
+                boolean otr = false;
+                if (radioButton_otro_especialidad.isChecked()) {
                     seleccion = true;
                     String otro = textInputLayout_otro_especialidad.getEditText().getText().toString();
-                    if(!otro.isEmpty()){
+                    if (!otro.isEmpty()) {
                         especialidadesSelecciondas = especialidadesSelecciondas + otro;
-                    }else{
+                        otr = true;
+                    } else {
                         seleccion = false;
                     }
                 }
 
-                if(seleccion){
-                    textInputLayout_Especialidad.getEditText().setText(especialidadesSelecciondas.substring(0, especialidadesSelecciondas.length()-2));
+                if (seleccion) {
+                    if (otr) {
+                        textInputLayout_Especialidad.getEditText().setText(especialidadesSelecciondas.substring(0, especialidadesSelecciondas.length()));
+                    } else {
+                        textInputLayout_Especialidad.getEditText().setText(especialidadesSelecciondas.substring(0, especialidadesSelecciondas.length() - 2));
+                    }
                     dialog.dismiss();
-                }else{
+                } else {
                     Snackbar.make(view, "Debes seleccionar al menos una especialidad. Si marcaste Otro, debes escribir ese oficio.", Snackbar.LENGTH_SHORT).show();
                 }
             }
@@ -197,7 +203,7 @@ public class SignInActivity extends AppCompatActivity implements Information {
         String pass = textInputLayout_Pass.getEditText().getText().toString();
         String confirmPass = textInputLayout_ConfirmPass.getEditText().getText().toString();
 
-        if(validarCampos(nombre, apellidos, telefono, ubicacion, especialidad, email, pass, confirmPass)){
+        if (validarCampos(nombre, apellidos, telefono, ubicacion, especialidad, email, pass, confirmPass)) {
             String[] args = new String[5];
             args[0] = nombre;
             args[1] = apellidos;
@@ -259,20 +265,20 @@ public class SignInActivity extends AppCompatActivity implements Information {
         if (tipo.equals("TALACHERO")) {
             if (!especialidad.isEmpty()) {
                 bEspecialidad = true;
-            }else{
+            } else {
                 textInputLayout_Especialidad.setError("Campo requerido");
             }
         } else {
             bEspecialidad = true;
         }
 
-        if(!email.isEmpty()){
-            if(Pattern.matches(Constantes.EXREGEMAIL, email)){
+        if (!email.isEmpty()) {
+            if (Pattern.matches(Constantes.EXREGEMAIL, email)) {
                 bEmail = true;
-            }else{
+            } else {
                 textInputLayout_Email.setError("Correo no válido");
             }
-        }else{
+        } else {
             textInputLayout_Email.setError("Campo requerido");
         }
 

@@ -333,13 +333,13 @@
                     app:errorEnabled="true"
                     app:hintTextColor="@color/principal_yellow">
 
-                    <EditText
-                        android:editable="false"
-                        android:id="@+id/editText_Especialidad"
+                    <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:inputType="none" />
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:inputType="textCapWords"
+                        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

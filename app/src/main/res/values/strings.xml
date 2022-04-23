@@ -30,7 +30,7 @@
 
 
     <string name="direcci_n">Cerro de Punhuato 27 interior 7, infonavit balcones, Uruapan</string> <!--Cambiar-->
-    <string name="email">pulido11@gmail.com</string><!--Cambiar-->
+    <string name="email">example@example.com</string><!--Cambiar-->
     <string name="escribe_un_mensaje">Escribe un mensaje...</string>
     <string name="_100_talachos_disponibles">100 Talachos disponibles</string>
     <string name="nombre_contrato_pendiente">Salvador Morado Quiroz</string>
