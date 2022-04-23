@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.40729166666666666" />
         <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_chat.xml" value="0.1947463768115942" />
         <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_login.xml" value="0.19067028985507245" />
         <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -12,8 +13,6 @@
         <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/activity_talacheros.xml" value="0.20416666666666666" />
         <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/dialog_accept_contract.xml" value="0.20416666666666666" />
         <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/dialog_editar_informacion.xml" value="0.19067028985507245" />
-        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/dialog_especialidades.xml" value="0.1802536231884058" />
-        <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/dialog_recover_pass.xml" value="0.20416666666666666" />
         <entry key="..\:/Salvador/Documents/TES Files/TES/app/src/main/res/layout/item_talachero.xml" value="0.19067028985507245" />
         <entry key="..\:/Salvador/Documents/TES/app/src/main/res/layout/activity_chat.xml" value="0.11503623188405797" />
         <entry key="..\:/Salvador/Documents/TES/app/src/main/res/layout/activity_contract_history.xml" value="0.11503623188405797" />
@@ -74,10 +73,30 @@
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/menu/overflow.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/Salvador Morado/StudioProjects/TES/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/activity_contract_history.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/activity_mensajeria.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/activity_specialty.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/activity_talacheros.xml" value="0.2684903748733536" />
+        <entry key="app/src/main/res/layout/dialgo_recuperar_password.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/dialog_accept_contract.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/dialog_contratos_propuestos.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/dialog_editar_informacion.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/dialog_especialidades.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/dialog_propuesta_talachero.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/item_contrato_pendiente.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/item_contrato_rechazados.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/item_contrato_sin_finalizar.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/item_especialidad.xml" value="0.27001013171225935" />
+        <entry key="app/src/main/res/layout/item_mensajeria.xml" value="0.37083333333333335" />
+        <entry key="app/src/main/res/layout/item_talachero.xml" value="0.37083333333333335" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

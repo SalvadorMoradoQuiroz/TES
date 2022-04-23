@@ -1,16 +1,20 @@
 package com.tecnm.campusuruapan.pi.tes.models;
 
-public class Talachero {
+import java.io.Serializable;
+
+public class Talachero implements Serializable {
     private String nombre;
     private String direccion;
     private int calificacion;
-    private int image;
+    private String image;
+    private String especialidad;
 
-    public Talachero(String nombre, String direccion, int calificacion, int image) {
+    public Talachero(String nombre, String direccion, int calificacion, String image, String especialidad) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.calificacion = calificacion;
         this.image = image;
+        this.especialidad = especialidad;
     }
 
     public String getNombre() {
@@ -37,11 +41,15 @@ public class Talachero {
         this.calificacion = calificacion;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getEspecialidad() {
+        return especialidad;
     }
 }

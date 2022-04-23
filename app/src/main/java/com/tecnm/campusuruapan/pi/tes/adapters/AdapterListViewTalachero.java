@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.tecnm.campusuruapan.pi.tes.ChatActivity;
 import com.tecnm.campusuruapan.pi.tes.LoginActivity;
 import com.tecnm.campusuruapan.pi.tes.R;
@@ -73,6 +74,11 @@ public class AdapterListViewTalachero extends BaseAdapter {
             talacheroHolder.textView_NombreT_Item.setText(talacheroes.get(position).getNombre());
             talacheroHolder.textView_DireccionT_Item.setText("Dirección: "+talacheroes.get(position).getDireccion());
             talacheroHolder.textView_CalificacionT_Item.setText("Calificación: "+talacheroes.get(position).getCalificacion());
+
+            Glide.with(talacheroHolder.imageView_FotoPerfilT_Item.getContext()).load(talacheroes.get(position).getImage())
+                    .placeholder(R.drawable.ic_baseline_account_circle_24)
+                    .circleCrop()
+                    .into(talacheroHolder.imageView_FotoPerfilT_Item);
             //talacheroHolder.imageView_FotoPerfilT_Item.setImageResource();
             talacheroHolder.imageButton_Mensaje_Item.setOnClickListener(new View.OnClickListener() {
                 @Override
